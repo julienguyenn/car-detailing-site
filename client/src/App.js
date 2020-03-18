@@ -6,18 +6,25 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import BookingForm from './booking/BookingForm';
 
 function App() {
-  function send() {
-    fetch("http://localhost:8080/addData", {
-      method:'POST'
-    })
-    
-  }
+
   return (
+    <Router>
     <div className="App">
-      <button onClick={send}>Add Data</button>
+      <Link to="/">Home</Link>
+      <Link to="/book">Book</Link>
+
+      <Switch>
+        <Route path="/book">
+          <BookingForm />
+        </Route>
+      </Switch>
+    
     </div>
+    </Router>
+
   );
 }
 
