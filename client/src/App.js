@@ -20,6 +20,9 @@ function App() {
         <Route path="/book">
           <BookingForm />
         </Route>
+        <Route path="/">
+          <h1>HOMEPAGE</h1>
+        </Route>
       </Switch>
     
     </div>
