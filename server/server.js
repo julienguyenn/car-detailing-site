@@ -11,6 +11,8 @@ const pool = new Pool({
   host: 'localhost',
   database: 'cllective'
 });
+const bodyParser = require("body-parser");
+app.use(bodyParser.urlencoded({extended: true}));
 
 // pool.query(`
 // SELECT id, name, cohort_id
@@ -25,12 +27,13 @@ const pool = new Pool({
 app.get('/', (req, res) => res.send('Hello World!'))
 
 app.post('/addData', (req, res) => {
+  console.log(req.body)
   pool.query(`
-  INSERT INTO sample (id, name)
-  VALUES (2, 'Julie');`
+  INSERT INTO sample (name)
+  VALUES ('Julie');`
   )
   .then(res => {
-    console.log(res);
+    // console.log(res);
   })
   .catch(err => console.log('query error', err.stack))
 })
