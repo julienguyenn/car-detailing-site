@@ -2,8 +2,8 @@
 const express = require('express');
 const { Pool } = require('pg');
 const bodyParser = require("body-parser");
-const app = express()
-const port = 8080
+const app = express();
+const port = 8080;
 
 // Use the below to do queries through here
 const pool = new Pool({
@@ -14,25 +14,17 @@ const pool = new Pool({
 });
 app.use(bodyParser.json());
 
-// pool.query(`
-// SELECT id, name, cohort_id
-// FROM students
-// LIMIT 5;
-// `)
-// .then(res => {
-//   console.log(res);
-// })
-// .catch(err => console.error('query error', err.stack));
-
-app.get('/', (req, res) => res.send('Hello World!'))
-app.get('/addData', (req, res) => res.send('Hello World!'))
-
-
+// Books an appointment and adds information to the database
 app.post('/addData', (req, res) => {
   const data = req.body
   pool.query(`
-  INSERT INTO clients ("first_name", "last_name", "email", "phone", "text")
-  VALUES ('${data.first_name}',' ${data.last_name}', '${data.email}', '${data.phone}', false);`
+    INSERT INTO clients ("first_name", "last_name", "email", "phone", "text")
+    VALUES 
+      ('${data.first_name}',
+      ' ${data.last_name}', 
+      '${data.email}', 
+      '${data.phone}', 
+      ${data.text});`
   )
   .then(res => {
     console.log(res);

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
+import Checkbox from '@material-ui/core/Checkbox';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 // import Grid from '@material-ui/core/Grid';
 const axios = require('axios').default;
 
@@ -15,14 +17,19 @@ export default function BookingForm() {
     last_name: '',
     email: '',
     phone: '',
+    text: false,
   })
 
 
   // changes state of the inputs for submission
   function changeData(event) {
     const key = event.target.name;
-    const value = event.target.value;
-    changeInputs(prev => { return {...prev, [key]: value}})
+    if (key === "text") {
+      changeInputs(prev => { return {...prev, "text": event.target.checked}})
+    } else {
+      const value = event.target.value;
+      changeInputs(prev => { return {...prev, [key]: value}})
+    }
   }
 
   // sends data to the backend to book appointment
@@ -44,6 +51,10 @@ export default function BookingForm() {
         <TextField required name='last_name' id="standard-basic" label="Last Name" onChange={changeData}/>
         <TextField required name='email' id="standard-basic" label="Email" onChange={changeData}/>
         <TextField required name='phone' id="standard-basic" label="Phone" onChange={changeData}/>
+        <FormControlLabel
+          control={<Checkbox checked={inputs.text} name="text" onChange={changeData} label="prefer texting"/>}
+          label="prefer texting"
+        />
       <Button type="submit" variant="contained">Submit</Button>
     </form>
   )
