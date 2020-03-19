@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import Grid from '@material-ui/core/Grid';
+// import Grid from '@material-ui/core/Grid';
+const axios = require('axios').default;
+
 
 
 // This handles the form to book an appointment
@@ -27,14 +29,13 @@ export default function BookingForm() {
   function send(e) {
     e.preventDefault();
 
-    fetch("http://localhost:8080/addData", {
-      method:'POST',
-      headers: {
-        "Content-Type": "application/json"
-      },
-      data: null,
-      body: JSON.stringify(inputs)
+    axios.post('/addData', inputs)
+    .then(function (response) {
+      console.log(response);
     })
+    .catch(function (error) {
+      console.log(error);
+    });
   }
 
   return (

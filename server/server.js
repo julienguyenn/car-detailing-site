@@ -1,6 +1,7 @@
 
-const express = require('express')
-const { Pool } = require('pg')
+const express = require('express');
+const { Pool } = require('pg');
+const bodyParser = require("body-parser");
 const app = express()
 const port = 8080
 
@@ -11,8 +12,7 @@ const pool = new Pool({
   host: 'localhost',
   database: 'cllective'
 });
-const bodyParser = require("body-parser");
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
 // pool.query(`
 // SELECT id, name, cohort_id
@@ -25,9 +25,11 @@ app.use(bodyParser.urlencoded({extended: true}));
 // .catch(err => console.error('query error', err.stack));
 
 app.get('/', (req, res) => res.send('Hello World!'))
+app.get('/addData', (req, res) => res.send('Hello World!'))
+
 
 app.post('/addData', (req, res) => {
-  console.log(req.body)
+  console.log(req.body.first_name)
   pool.query(`
   INSERT INTO sample (name)
   VALUES ('Julie');`
