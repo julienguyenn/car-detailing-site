@@ -25,10 +25,11 @@ export default function BookingForm() {
   function changeData(event) {
     const key = event.target.name;
     if (key === "text") {
-      changeInputs(prev => { return {...prev, "text": event.target.checked}})
+      changeInputs({...inputs, "text": event.target.checked})
+      console.log(inputs.text)
     } else {
       const value = event.target.value;
-      changeInputs(prev => { return {...prev, [key]: value}})
+      changeInputs({...inputs, [key]: value})
     }
   }
 
