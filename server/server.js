@@ -29,13 +29,13 @@ app.get('/addData', (req, res) => res.send('Hello World!'))
 
 
 app.post('/addData', (req, res) => {
-  console.log(req.body.first_name)
+  const data = req.body
   pool.query(`
-  INSERT INTO sample (name)
-  VALUES ('Julie');`
+  INSERT INTO clients ("first_name", "last_name", "email", "phone", "text")
+  VALUES ('${data.first_name}',' ${data.last_name}', '${data.email}', '${data.phone}', false);`
   )
   .then(res => {
-    // console.log(res);
+    console.log(res);
   })
   .catch(err => console.log('query error', err.stack))
 })
