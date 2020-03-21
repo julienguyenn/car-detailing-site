@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { startOfToday } from 'date-fns';
 import ClientInfo from './ClientInfo';
+import BookingDetails from './BookingDetails';
 
 
 const axios = require('axios').default;
@@ -17,8 +17,6 @@ export default function BookingForm() {
     phone: '',
     text: false,
   })
-
-  console.log(startOfToday())
 
 
   // sends data to the backend to book appointment
@@ -37,6 +35,7 @@ export default function BookingForm() {
   return (
     <div>
       <ClientInfo clientInputs={clientInputs} changeInputs={changeInputs} send={send}/>
+      <BookingDetails/>
     </div>
   )
 }
