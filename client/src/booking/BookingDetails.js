@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { format, startOfToday } from 'date-fns';
+import { format, 
+        startOfToday,
+        addDays } from 'date-fns';
 import DateFnsUtils from '@date-io/date-fns';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
@@ -30,7 +32,7 @@ export default function BookingDetails({}) {
           onChange={changeDate}
           format="MM/dd/yyyy"
           minDate={new Date()}
-          maxDate={new Date(2020, 4, 20)}
+          maxDate={addDays(new Date(), 14)}
         />
         </MuiPickersUtilsProvider>
     </div>
