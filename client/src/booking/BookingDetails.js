@@ -1,31 +1,38 @@
 import React, { useState } from 'react';
-import { startOfToday } from 'date-fns';
+import { format, startOfToday } from 'date-fns';
+import DateFnsUtils from '@date-io/date-fns';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
+import {
+  MuiPickersUtilsProvider,
+  KeyboardDatePicker,
+} from '@material-ui/pickers';
+import { DatePicker } from "@material-ui/pickers";
+
 
 
 
 export default function BookingDetails({}) {
-  const [age, handleChange] = useState('')
+  const [date, changeDate] = useState('')
 
   return (
     <div>
       <h1>Booking Information</h1>
-      <FormControl className='formControl'>
-        <InputLabel id="demo-simple-select-label">Age</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={age}
-          onChange={handleChange}
-        >
-          <MenuItem value={10}>10</MenuItem>
-          <MenuItem value={20}>20</MenuItem>
-          <MenuItem value={30}>30</MenuItem>
-        </Select>
-      </FormControl>
+      <MuiPickersUtilsProvider utils={DateFnsUtils}>
+        <DatePicker
+          autoOk
+          orientation="landscape"
+          variant="static"
+          openTo="date"
+          value={date}
+          onChange={changeDate}
+          format="MM/dd/yyyy"
+          minDate={new Date()}
+          maxDate={new Date(2020, 4, 20)}
+        />
+        </MuiPickersUtilsProvider>
     </div>
   )
 }
