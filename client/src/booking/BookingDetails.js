@@ -1,15 +1,9 @@
 import React, { useState } from 'react';
-import { format, 
-        startOfToday,
-        addDays } from 'date-fns';
+import { addDays,
+         getDay } from 'date-fns';
 import DateFnsUtils from '@date-io/date-fns';
-import MenuItem from '@material-ui/core/MenuItem';
-import Select from '@material-ui/core/Select';
-import InputLabel from '@material-ui/core/InputLabel';
-import FormControl from '@material-ui/core/FormControl';
 import {
   MuiPickersUtilsProvider,
-  KeyboardDatePicker,
 } from '@material-ui/pickers';
 import { DatePicker } from "@material-ui/pickers";
 
@@ -17,7 +11,10 @@ import { DatePicker } from "@material-ui/pickers";
 
 
 export default function BookingDetails({}) {
-  const [date, changeDate] = useState('')
+  const [date, changeDate] = useState(new Date())
+
+  
+  console.log(getDay(date))
 
   return (
     <div>
@@ -31,8 +28,8 @@ export default function BookingDetails({}) {
           value={date}
           onChange={changeDate}
           format="MM/dd/yyyy"
-          minDate={new Date()}
-          maxDate={addDays(new Date(), 14)}
+          minDate={addDays(new Date(), 1)}
+          maxDate={addDays(new Date(), 15)} // Can book up to two weeks from the date
         />
         </MuiPickersUtilsProvider>
     </div>
