@@ -8,10 +8,14 @@ import {
 } from "react-router-dom";
 import BookingForm from './booking/BookingForm';
 
+
 function App() {
 
   return (
     <Router>
+      <Router>
+      <Route path="/admin"></Route>
+      </Router>
     <div className="App">
       <Link to="/">Home</Link>
       <Link to="/book">Book</Link>
