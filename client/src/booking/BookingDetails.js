@@ -12,8 +12,7 @@ import './styling/BookingDetails.css'
 
 
 
-
-export default function BookingDetails({}) {
+export default function BookingDetails() {
   const [date, changeDate] = useState(new Date())
 
   console.log(format(date, 'MM/dd/yyyy'))
