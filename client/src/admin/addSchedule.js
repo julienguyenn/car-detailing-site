@@ -87,16 +87,31 @@ export default function AddSchedule({}) {
         />
       </MuiPickersUtilsProvider>
       <FormControl className={classes.formControl}>
-        {/* <InputLabel id="demo-simple-select-label">Time</InputLabel> */}
+        <InputLabel id="demo-simple-select-label">From</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={time}
-          onChange={changeTime}
+          onChange={(event) => changeTime(event.target.value)}
         >
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          <MenuItem value={'8:00'}>8:00</MenuItem>
+          <MenuItem value={'8:30'}>8:30</MenuItem>
+          <MenuItem value={'9:00'}>9:00</MenuItem>
+          <MenuItem value={'9:30'}>9:30</MenuItem>
+          <MenuItem value={'10:00'}>10:00</MenuItem>
+          <MenuItem value={'10:30'}>10:30</MenuItem>
+          <MenuItem value={'11:00'}>11:00</MenuItem>
+          <MenuItem value={'11:30'}>11:30</MenuItem>
+          <MenuItem value={'12:00'}>12:00</MenuItem>
+          <MenuItem value={'12:30'}>12:30</MenuItem>
+          <MenuItem value={'1:00'}>1:00</MenuItem>
+          <MenuItem value={'1:30'}>1:30</MenuItem>
+          <MenuItem value={'2:00'}>2:00</MenuItem>
+          <MenuItem value={'2:30'}>2:30</MenuItem>
+          <MenuItem value={'3:00'}>3:00</MenuItem>
+          <MenuItem value={'3:30'}>3:30</MenuItem>
+          <MenuItem value={'4:00'}>4:00</MenuItem>
+          <MenuItem value={'4:30'}>4:30</MenuItem>
         </Select>
       </FormControl>
       <button onClick={addSchedule}>Submit</button>
