@@ -32,4 +32,8 @@ app.post('/addData', (req, res) => {
   .catch(err => console.log('query error', err.stack))
 })
 
+app.post('/addSchedule', (req, res) => {
+  
+})
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
