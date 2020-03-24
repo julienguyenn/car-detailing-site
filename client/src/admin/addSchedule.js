@@ -8,7 +8,21 @@ import {
   KeyboardDatePicker
 } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import { makeStyles } from '@material-ui/core/styles';
 const axios = require('axios').default;
+
+
+const useStyles = makeStyles(theme => ({
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120,
+  }
+}));
 
 // Default schedule shows 8 to 9 is free (false means free time)
 const DEFAULT = {
@@ -18,10 +32,14 @@ const DEFAULT = {
   '4:30': false, '5:00': false,
 }
 export default function AddSchedule({}) {
+  const classes = useStyles();
+
   const [dates, changeDates] = useState({})
   const [minMaxDates, changeMinMax] = useState([])
   const [editDate, changeDate] = useState(new Date())
+  const [time, changeTime] = useState('10')
 
+  console.log(time)
   // const date = format(new Date(), 'mm/dd/yyyy');
 
   function addSchedule() {
@@ -68,6 +86,19 @@ export default function AddSchedule({}) {
           }}
         />
       </MuiPickersUtilsProvider>
+      <FormControl className={classes.formControl}>
+        {/* <InputLabel id="demo-simple-select-label">Time</InputLabel> */}
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={time}
+          onChange={changeTime}
+        >
+          <MenuItem value={10}>Ten</MenuItem>
+          <MenuItem value={20}>Twenty</MenuItem>
+          <MenuItem value={30}>Thirty</MenuItem>
+        </Select>
+      </FormControl>
       <button onClick={addSchedule}>Submit</button>
     </div>
   )
