@@ -17,6 +17,7 @@ function App() {
     <div className="App">
       <Link to="/">Home</Link>
       <Link to="/book">Book</Link>
+      <Link to='/admin'>Admin</Link>
 
       <Switch>
         <Route path="/book">
