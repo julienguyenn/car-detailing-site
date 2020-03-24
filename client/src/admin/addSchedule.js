@@ -19,6 +19,7 @@ const DEFAULT = {
 }
 export default function AddSchedule({}) {
   const [dates, changeDates] = useState({})
+  const [minMaxDates, changeMinMax] = useState([])
 
   // const date = format(new Date(), 'mm/dd/yyyy');
 
@@ -26,11 +27,17 @@ export default function AddSchedule({}) {
     axios.post('/addSchedule', dates);
   }
 
+  console.log(minMaxDates)
+
 
   // Adds dates with default times
   function addDates() {
     let date = new Date();
+    changeMinMax([date])
     for (let count = 0; count <= 14; count++) {
+      if (count === 14) {
+        changeMinMax((prev) => {return [...prev, date]})
+      }
       const formattedDate = format(date, 'mm/dd/yyyy');
       changeDates((prev) => {
         return {
@@ -53,6 +60,8 @@ export default function AddSchedule({}) {
           margin="normal"
           id="date-picker-inline"
           label="Date picker inline"
+          minDate={minMaxDates[0]}
+          maxDate={minMaxDates[1]}
           // value={selectedDate}
           // onChange={handleDateChange}
           KeyboardButtonProps={{
