@@ -5,7 +5,12 @@ import { addDays,
 import DateFnsUtils from '@date-io/date-fns';
 const axios = require('axios').default;
 
-
+const DEFAULT = {
+  '8:00': false, '8:30': false, '9:00': false, '9:30': false, '10:00': false,
+  '10:30': false, '11:00': false, '11:30': false,'12:00': false,'12:30': false,'1:00': false,
+  '1:30': false,'2:00': false,'2:30': false,'3:00': false,'3:30': false,'4:00': false,
+  '4:30': false, '5:00': false,
+}
 export default function AddSchedule({}) {
   const [dates, changeDates] = useState({})
 
@@ -23,7 +28,7 @@ export default function AddSchedule({}) {
       changeDates((prev) => {
         return {
           ...prev,
-          [formattedDate]: 'default'
+          [formattedDate]: DEFAULT
         }});
       date = addDays(date, 1)
     }

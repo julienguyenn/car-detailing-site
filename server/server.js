@@ -33,7 +33,8 @@ app.post('/addData', (req, res) => {
 })
 
 app.post('/addSchedule', (req, res) => {
-  console.log(req.body)
+  const schedule = req.body;
+  console.log(schedule)
 
 })
 

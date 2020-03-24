@@ -31,7 +31,7 @@ export default function BookingDetails({}) {
             openTo="date"
             value={date}
             onChange={changeDate}
-            format="MM/dd/yyyy"
+            format="mm/dd/yyyy"
             minDate={addDays(new Date(), 1)}
             maxDate={addDays(new Date(), 15)} // Can book up to two weeks from the date
           />
