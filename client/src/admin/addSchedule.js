@@ -11,12 +11,10 @@ export default function AddSchedule({}) {
 
   // const date = format(new Date(), 'mm/dd/yyyy');
 
-  // function addTwoWeeks() {
-  //   axios.post('/addSchedule', {date})
-  // }
-  
+  function addSchedule() {
+    axios.post('/addSchedule', dates);
+  }
 
-  console.log(dates)
 
   function addDates() {
     let date = new Date();
@@ -35,7 +33,7 @@ export default function AddSchedule({}) {
     <div>
       <button onClick={addDates}>Add two weeks</button>
       <div>Change Availability</div>
-
+      <button onClick={addSchedule}>Submit</button>
     </div>
   )
 }
