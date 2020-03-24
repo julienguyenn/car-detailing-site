@@ -33,7 +33,8 @@ app.post('/addData', (req, res) => {
 })
 
 app.post('/addSchedule', (req, res) => {
-  
+  console.log(req.body)
+
 })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
