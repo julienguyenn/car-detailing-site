@@ -10,7 +10,6 @@ import {
 import DateFnsUtils from '@date-io/date-fns';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormHelperText from '@material-ui/core/FormHelperText';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import { makeStyles } from '@material-ui/core/styles';
@@ -37,15 +36,22 @@ export default function AddSchedule({}) {
   const [dates, changeDates] = useState({})
   const [minMaxDates, changeMinMax] = useState([])
   const [editDate, changeDate] = useState(new Date())
-  const [time, changeTime] = useState('10')
+  const [startTime, changeStartTime] = useState('')
+  const [endTime, changeEndTime] = useState('')
 
-  console.log(time)
-  // const date = format(new Date(), 'mm/dd/yyyy');
+  console.log(startTime, endTime)
 
   function addSchedule() {
     axios.post('/addSchedule', dates);
   }
 
+  function addRestriction() {
+    const dateToEdit = format(editDate, 'MM/dd/yyyy');
+    let timeSched = dates[dateToEdit];
+    for (let time in timeSched) {
+      console.log(time[0])
+    }
+  }
   // Adds dates with default times
   function addDates() {
     let date = new Date();
@@ -55,7 +61,7 @@ export default function AddSchedule({}) {
         // eslint-disable-next-line no-loop-func
         changeMinMax((prev) => {return [...prev, date]})
       }
-      const formattedDate = format(date, 'mm/dd/yyyy');
+      const formattedDate = format(date, 'MM/dd/yyyy');
       changeDates((prev) => {
         return {
           ...prev,
@@ -91,8 +97,8 @@ export default function AddSchedule({}) {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={time}
-          onChange={(event) => changeTime(event.target.value)}
+          value={startTime}
+          onChange={(event) => changeStartTime(event.target.value)}
         >
           <MenuItem value={'8:00'}>8:00</MenuItem>
           <MenuItem value={'8:30'}>8:30</MenuItem>
@@ -114,6 +120,36 @@ export default function AddSchedule({}) {
           <MenuItem value={'4:30'}>4:30</MenuItem>
         </Select>
       </FormControl>
+
+      <FormControl className={classes.formControl}>
+        <InputLabel id="demo-simple-select-label">To</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={endTime}
+          onChange={(event) => changeEndTime(event.target.value)}
+        >
+          <MenuItem value={'8:30'}>8:30</MenuItem>
+          <MenuItem value={'9:00'}>9:00</MenuItem>
+          <MenuItem value={'9:30'}>9:30</MenuItem>
+          <MenuItem value={'10:00'}>10:00</MenuItem>
+          <MenuItem value={'10:30'}>10:30</MenuItem>
+          <MenuItem value={'11:00'}>11:00</MenuItem>
+          <MenuItem value={'11:30'}>11:30</MenuItem>
+          <MenuItem value={'12:00'}>12:00</MenuItem>
+          <MenuItem value={'12:30'}>12:30</MenuItem>
+          <MenuItem value={'1:00'}>1:00</MenuItem>
+          <MenuItem value={'1:30'}>1:30</MenuItem>
+          <MenuItem value={'2:00'}>2:00</MenuItem>
+          <MenuItem value={'2:30'}>2:30</MenuItem>
+          <MenuItem value={'3:00'}>3:00</MenuItem>
+          <MenuItem value={'3:30'}>3:30</MenuItem>
+          <MenuItem value={'4:00'}>4:00</MenuItem>
+          <MenuItem value={'4:30'}>4:30</MenuItem>
+          <MenuItem value={'5:00'}>5:00</MenuItem>
+        </Select>
+      </FormControl>
+      <button onClick={addRestriction}>Add Restriction</button>
       <button onClick={addSchedule}>Submit</button>
     </div>
   )

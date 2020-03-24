@@ -16,7 +16,7 @@ import './styling/BookingDetails.css'
 export default function BookingDetails({}) {
   const [date, changeDate] = useState(new Date())
 
-  console.log(format(date, 'dd/mm/yyyy'))
+  console.log(format(date, 'MM/dd/yyyy'))
   console.log(getDay(date))
 
   return (
@@ -31,7 +31,7 @@ export default function BookingDetails({}) {
             openTo="date"
             value={date}
             onChange={changeDate}
-            format="mm/dd/yyyy"
+            format="MM/dd/yyyy"
             minDate={addDays(new Date(), 1)}
             maxDate={addDays(new Date(), 15)} // Can book up to two weeks from the date
           />
