@@ -14,10 +14,21 @@ export default function AddSchedule({}) {
   // function addTwoWeeks() {
   //   axios.post('/addSchedule', {date})
   // }
+  
+
+  console.log(dates)
 
   function addDates() {
     let date = new Date();
-    
+    for (let count = 0; count <= 14; count++) {
+      const formattedDate = format(date, 'mm/dd/yyyy');
+      changeDates((prev) => {
+        return {
+          ...prev,
+          [formattedDate]: 'default'
+        }});
+      date = addDays(date, 1)
+    }
   }
   
   return (
