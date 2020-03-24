@@ -1,10 +1,16 @@
 import React, { useState } from 'react';
 import { addDays,
   format,
-   getDay } from 'date-fns';
+   getDay,
+  parse } from 'date-fns';
+import {
+  MuiPickersUtilsProvider,
+  KeyboardDatePicker
+} from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
 const axios = require('axios').default;
 
+// Default schedule shows 8 to 9 is free (false means free time)
 const DEFAULT = {
   '8:00': false, '8:30': false, '9:00': false, '9:30': false, '10:00': false,
   '10:30': false, '11:00': false, '11:30': false,'12:00': false,'12:30': false,'1:00': false,
@@ -21,6 +27,7 @@ export default function AddSchedule({}) {
   }
 
 
+  // Adds dates with default times
   function addDates() {
     let date = new Date();
     for (let count = 0; count <= 14; count++) {
@@ -38,6 +45,21 @@ export default function AddSchedule({}) {
     <div>
       <button onClick={addDates}>Add two weeks</button>
       <div>Change Availability</div>
+      <MuiPickersUtilsProvider utils={DateFnsUtils}>
+        <KeyboardDatePicker
+          disableToolbar
+          variant="inline"
+          format="MM/dd/yyyy"
+          margin="normal"
+          id="date-picker-inline"
+          label="Date picker inline"
+          // value={selectedDate}
+          // onChange={handleDateChange}
+          KeyboardButtonProps={{
+            'aria-label': 'change date',
+          }}
+        />
+      </MuiPickersUtilsProvider>
       <button onClick={addSchedule}>Submit</button>
     </div>
   )
