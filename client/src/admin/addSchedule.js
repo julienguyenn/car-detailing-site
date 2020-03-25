@@ -42,8 +42,8 @@ export default function AddSchedule() {
   return (
     <div>
       <button onClick={addDates}>Add two weeks</button>
-      <div>Change Availability</div>
-        <RestrictionForm dates={dates} changeDates={changeDates} minMaxDates={minMaxDates} />
+      { Object.keys(dates).length !== 0 && 
+      <RestrictionForm dates={dates} changeDates={changeDates} minMaxDates={minMaxDates} /> }
       <button onClick={addSchedule}>Submit</button>
     </div>
   )

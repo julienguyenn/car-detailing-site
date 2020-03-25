@@ -37,6 +37,7 @@ export default function RestrictionForm({dates, changeDates, minMaxDates}) {
 
   return (
     <div>
+      <div>Change Availability</div>
        <MuiPickersUtilsProvider utils={DateFnsUtils}>
         <KeyboardDatePicker
           disableToolbar
