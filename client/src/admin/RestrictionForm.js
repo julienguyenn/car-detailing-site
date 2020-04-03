@@ -95,24 +95,24 @@ export default function RestrictionForm({dates, changeDates, minMaxDates}) {
           value={endTime}
           onChange={(event) => changeEndTime(event.target.value)}
         >
-          <MenuItem value={'8:30'}>8:30</MenuItem>
-          <MenuItem value={'9:00'}>9:00</MenuItem>
-          <MenuItem value={'9:30'}>9:30</MenuItem>
-          <MenuItem value={'10:00'}>10:00</MenuItem>
-          <MenuItem value={'10:30'}>10:30</MenuItem>
-          <MenuItem value={'11:00'}>11:00</MenuItem>
-          <MenuItem value={'11:30'}>11:30</MenuItem>
-          <MenuItem value={'12:00'}>12:00</MenuItem>
-          <MenuItem value={'12:30'}>12:30</MenuItem>
-          <MenuItem value={'1:00'}>1:00</MenuItem>
-          <MenuItem value={'1:30'}>1:30</MenuItem>
-          <MenuItem value={'2:00'}>2:00</MenuItem>
-          <MenuItem value={'2:30'}>2:30</MenuItem>
-          <MenuItem value={'3:00'}>3:00</MenuItem>
-          <MenuItem value={'3:30'}>3:30</MenuItem>
-          <MenuItem value={'4:00'}>4:00</MenuItem>
-          <MenuItem value={'4:30'}>4:30</MenuItem>
-          <MenuItem value={'5:00'}>5:00</MenuItem>
+          <MenuItem value={8.5}>8:30</MenuItem>
+          <MenuItem value={9}>9:00</MenuItem>
+          <MenuItem value={9.5}>9:30</MenuItem>
+          <MenuItem value={10}>10:00</MenuItem>
+          <MenuItem value={10.5}>10:30</MenuItem>
+          <MenuItem value={11}>11:00</MenuItem>
+          <MenuItem value={11.5}>11:30</MenuItem>
+          <MenuItem value={12}>12:00</MenuItem>
+          <MenuItem value={12.5}>12:30</MenuItem>
+          <MenuItem value={1}>1:00</MenuItem>
+          <MenuItem value={1.5}>1:30</MenuItem>
+          <MenuItem value={2}>2:00</MenuItem>
+          <MenuItem value={2.5}>2:30</MenuItem>
+          <MenuItem value={3}>3:00</MenuItem>
+          <MenuItem value={3.5}>3:30</MenuItem>
+          <MenuItem value={4}>4:00</MenuItem>
+          <MenuItem value={4.5}>4:30</MenuItem>
+          <MenuItem value={5}>5:00</MenuItem>
         </Select>
       </FormControl>
       <button onClick={addRestriction}>Add Restriction</button>
