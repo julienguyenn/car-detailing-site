@@ -25,7 +25,10 @@ export default function AddSchedule() {
     let storedDate = localStorage.getItem('last_date');
     // if there are previous dates added to the schedule
     if (storedDate !== null) {
-      let lastAddedDate = new Date(storedDate.slice(6), storedDate.slice(0,2), storedDate.slice(3,5));
+      let lastAddedDate = new Date(
+        storedDate.slice(6), // year
+        storedDate.slice(0,2), // month
+        storedDate.slice(3,5)); // day
       if (compareAsc(lastAddedDate, date) === 1) { // if the last added date is later
         date = addDays(lastAddedDate, 1); // we will add the schedule after this date
       }
