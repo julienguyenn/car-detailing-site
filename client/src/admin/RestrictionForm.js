@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
 export default function RestrictionForm({dates, changeDates, minMaxDates}) {
   const classes = useStyles();
 
-  const [editDate, changeDate] = useState(new Date())
+  const [editDate, changeDate] = useState(minMaxDates[0])
   const [startTime, changeStartTime] = useState('')
   const [endTime, changeEndTime] = useState('')
 

@@ -22,16 +22,17 @@ export default function AddSchedule() {
   // Adds dates with default times
   function addDates() {
     let date = new Date(); // creates a date (which is today)
-    let storedDate= localStorage.getItem('last_date');
+    let storedDate = localStorage.getItem('last_date');
     // if there are previous dates added to the schedule
     if (storedDate !== null) {
-      let last_added_date = addDays(localStorage.getItem('last_date'), 1);
-      console.log(last_added_date)
-      if (compareAsc(last_added_date, date) === 1) { // if the last added date is later
-        date = last_added_date; // we will add the schedule after this date
+      let lastAddedDate = new Date(storedDate.slice(6), storedDate.slice(0,2), storedDate.slice(3,5));
+      if (compareAsc(lastAddedDate, date) === 1) { // if the last added date is later
+        date = addDays(lastAddedDate, 1); // we will add the schedule after this date
       }
     }
-    changeMinMax([date]) // adds today's date as start date
+    changeMinMax([date]) // add min date
+    console.log(minMaxDates)
+
 
     // add the next 14 days to availability
     for (let count = 0; count <= 14; count++) {
