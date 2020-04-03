@@ -38,6 +38,8 @@ export default function RestrictionForm({dates, changeDates, minMaxDates}) {
         timeSched[time] = true;
       }
     }
+
+    console.log(dates)
   }
 
   return (
