@@ -6,10 +6,10 @@ const axios = require('axios').default;
 
 // Default schedule shows 8 to 9 is free (false means free time)
 const DEFAULT = {
-  '8:00': false, '8:30': false, '9:00': false, '9:30': false, '10:00': false,
-  '10:30': false, '11:00': false, '11:30': false,'12:00': false,'12:30': false,'1:00': false,
-  '1:30': false,'2:00': false,'2:30': false,'3:00': false,'3:30': false,'4:00': false,
-  '4:30': false, '5:00': false,
+  8: false, 8.5: false, 9: false, 9.5: false, 10: false,
+  10.5: false, 11: false, 11.5: false, 12: false, 12.5: false, 1: false,
+  1.5: false, 2: false, 2.5: false, 3: false, 3.5: false, 4: false,
+  4.5: false, 5: false,
 }
 export default function AddSchedule() {
 

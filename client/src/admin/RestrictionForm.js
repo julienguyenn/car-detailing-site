@@ -28,13 +28,15 @@ export default function RestrictionForm({dates, changeDates, minMaxDates}) {
   const [endTime, changeEndTime] = useState('')
 
   function addRestriction() {
-    const dateToEdit = format(editDate, 'MM/dd/yyyy');
-    // get the time schedule of the date
-    let timeSched = dates[dateToEdit];
-    console.log(startTime, endTime)
-    console.log(timeSched)
-    for (let time in timeSched) {
-      console.log(timeSched[time]);
+    if (startTime >= endTime) {
+      console.log("Choose a valid end time")
+    } else {
+      const dateToEdit = format(editDate, 'MM/dd/yyyy');
+      // get the time schedule of the date
+      let timeSched = dates[dateToEdit];
+      for (let time = startTime; startTime < endTime; time += .5) {
+        console.log(time);
+      }
     }
   }
 
