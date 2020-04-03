@@ -28,7 +28,7 @@ export default function RestrictionForm({dates, changeDates, minMaxDates}) {
   const [endTime, changeEndTime] = useState('')
 
   function addRestriction() {
-    if (startTime >= endTime) {
+    if (false) { // check if the starttime and end time is valid
       console.log("Choose a valid end time")
     } else {
       const dateToEdit = format(editDate, 'MM/dd/yyyy');

@@ -38,7 +38,7 @@ app.post('/addSchedule', (req, res) => {
     let times = schedule[date];
     for (let time in times) {
       pool.query(`
-        INSERT INTO "Availability" ("timeslot", "date", "booked")
+        INSERT INTO availability ("timeslot", "date", "booked")
         VALUES
           (${time},
           '${date}',
