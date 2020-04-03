@@ -34,8 +34,8 @@ export default function RestrictionForm({dates, changeDates, minMaxDates}) {
       const dateToEdit = format(editDate, 'MM/dd/yyyy');
       // get the time schedule of the date
       let timeSched = dates[dateToEdit];
-      for (let time = startTime; startTime < endTime; time += .5) {
-        console.log(time);
+      for (let time = startTime; time < endTime; time += .5) {
+        timeSched[time] = true;
       }
     }
   }
