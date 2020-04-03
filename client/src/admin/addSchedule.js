@@ -22,8 +22,10 @@ export default function AddSchedule() {
 
   // Adds dates with default times
   function addDates() {
-    let date = new Date();
-    changeMinMax([date])
+    let date = new Date(); // creates a date (which is today)
+    changeMinMax([date]) // adds today's date as start date
+
+    // add the next 14 days to availability
     for (let count = 0; count <= 14; count++) {
       if (count === 14) {
         // eslint-disable-next-line no-loop-func
