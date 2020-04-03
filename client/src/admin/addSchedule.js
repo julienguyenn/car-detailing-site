@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { addDays,
         format,
-        compareAsc } from 'date-fns';
+        compareAsc,
+        isDate } from 'date-fns';
 import RestrictionForm from './RestrictionForm'
 const axios = require('axios').default;
 
@@ -13,17 +14,19 @@ export default function AddSchedule() {
 
   function addSchedule() {
     // add the last scheduled date to localstorage
-    localStorage.setItem('last_date', minMaxDates[1]);
-    axios.post('/addSchedule', dates);
+    let stringDate = format(minMaxDates[1], 'MM/dd/yyyy')
+    localStorage.setItem('last_date', stringDate);
+    // axios.post('/addSchedule', dates);
   }
 
   // Adds dates with default times
   function addDates() {
     let date = new Date(); // creates a date (which is today)
-
+    let storedDate= localStorage.getItem('last_date');
     // if there are previous dates added to the schedule
-    if (localStorage.getItem('last_date') !== null) {
+    if (storedDate !== null) {
       let last_added_date = addDays(localStorage.getItem('last_date'), 1);
+      console.log(last_added_date)
       if (compareAsc(last_added_date, date) === 1) { // if the last added date is later
         date = last_added_date; // we will add the schedule after this date
       }
