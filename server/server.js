@@ -34,8 +34,21 @@ app.post('/addData', (req, res) => {
 
 app.post('/addSchedule', (req, res) => {
   const schedule = req.body;
-  console.log(schedule)
-
-})
+  for (let date in schedule) {
+    let times = schedule[date];
+    for (let time in times) {
+      pool.query(`
+        INSERT INTO "Availability" ("timeslot", "date", "booked")
+        VALUES
+          (${time},
+          '${date}',
+           ${times[time]})`)
+           .then(res => {
+            console.log(res);
+          })
+          .catch(err => console.log('query error', err.stack))
+    }
+  }
+});
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

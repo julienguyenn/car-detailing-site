@@ -22,7 +22,7 @@ export default function AddSchedule() {
 
   // Adds dates with default times
   function addDates() {
-    let date = new Date(); // creates a date (which is today)
+    let date = new Date(); // creates a date (which is today), will change this later
     changeMinMax([date]) // adds today's date as start date
 
     // add the next 14 days to availability
