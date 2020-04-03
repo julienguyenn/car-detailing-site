@@ -27,8 +27,16 @@ export default function RestrictionForm({dates, changeDates, minMaxDates}) {
   const [startTime, changeStartTime] = useState('')
   const [endTime, changeEndTime] = useState('')
 
+  function correctTimes(start, end) {
+    if (start <= 12.5) {
+      if (end <= 4.5) {
+        return true;
+      }
+    }
+    return start < end;
+  }
   function addRestriction() {
-    if (false) { // check if the starttime and end time is valid
+    if (!correctTimes(startTime, endTime)) { // check if the starttime and end time is valid
       console.log("Choose a valid end time")
     } else {
       const dateToEdit = format(editDate, 'MM/dd/yyyy');
@@ -38,8 +46,6 @@ export default function RestrictionForm({dates, changeDates, minMaxDates}) {
         timeSched[time] = true;
       }
     }
-
-    console.log(dates)
   }
 
   return (

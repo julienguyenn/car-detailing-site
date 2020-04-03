@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { addDays,
         format,
-        compareAsc,
-        isDate } from 'date-fns';
+        compareAsc } from 'date-fns';
 import RestrictionForm from './RestrictionForm'
 const axios = require('axios').default;
 
