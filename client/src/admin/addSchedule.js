@@ -7,7 +7,7 @@ import RestrictionForm from './RestrictionForm'
 const axios = require('axios').default;
 
 export default function AddSchedule() {
-  // localStorage.clear();
+  // localStorage.clear(); // uncomment to start date over
 
   const [dates, changeDates] = useState({})
   const [minMaxDates, changeMinMax] = useState([])
@@ -17,10 +17,7 @@ export default function AddSchedule() {
     // add the last scheduled date to localstorage
     let stringDate = format(minMaxDates[1], 'MM/dd/yyyy')
     localStorage.setItem('last_date', stringDate);
-    // axios.post('/addSchedule', dates);
-
-    // deletes all data from previous year
-    axios.delete('/scheduleMaintenance', {year: getYear(new Date())});
+    axios.post('/addSchedule', {dates, year: getYear(new Date())});
   }
 
   // Adds dates with default times

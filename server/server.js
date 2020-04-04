@@ -36,7 +36,12 @@ app.post('/addData', (req, res) => {
 })
 
 app.post('/addSchedule', (req, res) => {
-  const schedule = req.body;
+  const schedule = req.body.dates;
+  pool.query(`
+    DELETE from availability WHERE year < ${req.body.year}`)
+    .then(res => { console.log(res) })
+    .catch(err => console.log('query error', err.stack));
+    
   for (let date in schedule) {
     let times = schedule[date];
     for (let time in times) {
@@ -54,9 +59,5 @@ app.post('/addSchedule', (req, res) => {
     }
   }
 });
-
-app.delete('/scheduleMaintenance', (req, res) => {
-  console.log(req.body)
-})
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
