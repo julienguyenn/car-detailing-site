@@ -15,7 +15,7 @@ export default function AddSchedule() {
     // add the last scheduled date to localstorage
     let stringDate = format(minMaxDates[1], 'MM/dd/yyyy')
     localStorage.setItem('last_date', stringDate);
-    // axios.post('/addSchedule', dates);
+    axios.post('/addSchedule', dates);
   }
 
   // Adds dates with default times
