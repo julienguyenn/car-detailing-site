@@ -28,13 +28,16 @@ export default function RestrictionForm({dates, changeDates, minMaxDates}) {
   const [endTime, changeEndTime] = useState('')
 
   function correctTimes(start, end) {
-    if (start <= 12.5) {
-      if (end <= 4.5) {
-        return true;
-      }
+    if (start >= 1 && start <= 4.5) {
+      start += 12;
+    } if (end >= 1 && end <= 5) {
+      end += 12;
     }
+
+    console.log(start, end)
     return start < end;
   }
+
   function addRestriction() {
     if (!correctTimes(startTime, endTime)) { // check if the starttime and end time is valid
       console.log("Choose a valid end time")
