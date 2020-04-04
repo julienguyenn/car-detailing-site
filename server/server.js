@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 
 // Books an appointment and adds information to the database
 app.post('/addData', (req, res) => {
-  const data = req.body
+  const data = req.body;
   pool.query(`
     INSERT INTO clients ("first_name", "last_name", "email", "phone", "text")
     VALUES 
@@ -37,11 +37,14 @@ app.post('/addData', (req, res) => {
 
 app.post('/addSchedule', (req, res) => {
   const schedule = req.body.dates;
+
+  // apply yearly maintenace by deleting data if it is from the previous year
   pool.query(`
     DELETE from availability WHERE year < ${req.body.year}`)
     .then(res => { console.log(res) })
     .catch(err => console.log('query error', err.stack));
-    
+  
+  // add schedule to database
   for (let date in schedule) {
     let times = schedule[date];
     for (let time in times) {
