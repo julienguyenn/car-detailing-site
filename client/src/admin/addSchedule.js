@@ -4,6 +4,7 @@ import { addDays,
         compareAsc,
         getYear } from 'date-fns';
 import RestrictionForm from './RestrictionForm'
+import { getLastAddedDate } from '../helpers/getLastAddedDate';
 const axios = require('axios').default;
 
 export default function AddSchedule() {
@@ -23,13 +24,9 @@ export default function AddSchedule() {
   // Adds dates with default times
   function addDates() {
     let date = new Date(); // creates a date (which is today)
-    let storedDate = localStorage.getItem('last_date');
-    // if there are previous dates added to the schedule
-    if (storedDate !== null) {
-      let lastAddedDate = new Date(
-        storedDate.slice(6), // year
-        storedDate.slice(0,2), // month
-        storedDate.slice(3,5)); // day
+    let lastAddedDate = getLastAddedDate();
+    if (lastAddedDate !== null) {
+      console.log(lastAddedDate)
       if (compareAsc(lastAddedDate, date) === 1) { // if the last added date is later
         date = addDays(lastAddedDate, 1); // we will add the schedule after this date
       }

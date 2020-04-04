@@ -13,10 +13,8 @@ import './styling/BookingDetails.css'
 
 
 export default function BookingDetails() {
-  const [date, changeDate] = useState(new Date())
+  const [date, changeDate] = useState(new Date());
 
-  console.log(format(date, 'MM/dd/yyyy'))
-  console.log(getDay(date))
 
   return (
     <div>
@@ -32,7 +30,7 @@ export default function BookingDetails() {
             onChange={changeDate}
             format="MM/dd/yyyy"
             minDate={addDays(new Date(), 1)}
-            maxDate={addDays(new Date(), 15)} // Can book up to two weeks from the date
+            maxDate={addDays(new Date(), 15)} // show available dates
           />
           <TimeSlots />
         </MuiPickersUtilsProvider>
