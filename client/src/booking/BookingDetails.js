@@ -13,7 +13,7 @@ export default function BookingDetails() {
       <h1>Booking Information</h1>
       <div id="day-time-box">
         <Calendar date={date} changeDate={changeDate}/>
-        <TimeSlots />
+        <TimeSlots currentDate={date}/>
       </div>
     </div>
   )

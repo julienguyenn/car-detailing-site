@@ -1,13 +1,12 @@
 import React from 'react';
 import "./styling/TimeSlots.css"
+import SingleTimeSlot from "./SingleTimeSlot";
 
-export default function TimeSlots() {
+export default function TimeSlots({ currentDate }) {
   
   return (
     <div id="outer-timebox">
       <div>
-        <p>8:00am</p>
-        <button></button>
       </div>
     </div>
   )
