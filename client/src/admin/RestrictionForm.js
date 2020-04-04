@@ -33,8 +33,6 @@ export default function RestrictionForm({dates, changeDates, minMaxDates}) {
     } if (end >= 1 && end <= 5) {
       end += 12;
     }
-
-    console.log(start, end)
     return start < end;
   }
 

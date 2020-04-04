@@ -4,6 +4,9 @@ const { Pool } = require('pg');
 const bodyParser = require("body-parser");
 const app = express();
 const port = 8080;
+// const { addDays,
+//   format,
+//   compareAsc } = require("date-fns");
 
 // Use the below to do queries through here
 const pool = new Pool({
@@ -38,11 +41,12 @@ app.post('/addSchedule', (req, res) => {
     let times = schedule[date];
     for (let time in times) {
       pool.query(`
-        INSERT INTO availability ("timeslot", "date", "booked")
+        INSERT INTO availability ("timeslot", "date", "booked", "year")
         VALUES
           (${time},
           '${date}',
-           ${times[time]})`)
+           ${times[time]},
+           ${date.slice(6)})`)
            .then(res => {
             console.log(res);
           })
@@ -50,5 +54,9 @@ app.post('/addSchedule', (req, res) => {
     }
   }
 });
+
+app.delete('/scheduleMaintenance', (req, res) => {
+  console.log(req.body)
+})
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { addDays,
         format,
-        compareAsc } from 'date-fns';
+        compareAsc,
+        getYear } from 'date-fns';
 import RestrictionForm from './RestrictionForm'
 const axios = require('axios').default;
 
@@ -11,11 +12,15 @@ export default function AddSchedule() {
   const [dates, changeDates] = useState({})
   const [minMaxDates, changeMinMax] = useState([])
 
+
   function addSchedule() {
     // add the last scheduled date to localstorage
     let stringDate = format(minMaxDates[1], 'MM/dd/yyyy')
     localStorage.setItem('last_date', stringDate);
-    axios.post('/addSchedule', dates);
+    // axios.post('/addSchedule', dates);
+
+    // deletes all data from previous year
+    axios.delete('/scheduleMaintenance', {year: getYear(new Date())});
   }
 
   // Adds dates with default times
@@ -33,8 +38,6 @@ export default function AddSchedule() {
       }
     }
     changeMinMax([date]) // add min date
-    console.log(minMaxDates)
-
 
     // add the next 14 days to availability
     for (let count = 0; count <= 14; count++) {
