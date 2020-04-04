@@ -9,12 +9,14 @@ import {
 import { DatePicker } from "@material-ui/pickers";
 import TimeSlots from "./TimeSlots"
 import './styling/BookingDetails.css'
+import { getLastAddedDate } from '../helpers/getLastAddedDate'
 
 
 
 export default function BookingDetails() {
   const [date, changeDate] = useState(new Date());
 
+  let lastScheduledDate = getLastAddedDate() ? getLastAddedDate() : new Date();
 
   return (
     <div>
@@ -30,7 +32,7 @@ export default function BookingDetails() {
             onChange={changeDate}
             format="MM/dd/yyyy"
             minDate={addDays(new Date(), 1)}
-            maxDate={addDays(new Date(), 15)} // show available dates
+            maxDate={lastScheduledDate} // show available dates
           />
           <TimeSlots />
         </MuiPickersUtilsProvider>
