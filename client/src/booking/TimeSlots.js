@@ -6,7 +6,7 @@ const axios = require('axios').default;
 
 
 export default function TimeSlots({ currentDate }) {
-  const [ times, changeTimes ] = useState({});
+  const [ times, changeTimes ] = useState({}); // all 30min timeslots from database
 
   let formattedDate = format(currentDate, 'MM/dd/yyyy');
   
@@ -14,9 +14,10 @@ export default function TimeSlots({ currentDate }) {
     axios.get(`/getTimes/${formattedDate}`)
     .then(res => changeTimes(res.data))
     .catch(err => console.log(err));
-  }, [])
+  }, []);
 
-  console.log(times);
+  
+
   return (
     <div id="outer-timebox">
       <h5>Available TimeSlots</h5>
