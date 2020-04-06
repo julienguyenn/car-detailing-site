@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import ClientInfo from './ClientInfo';
 import BookingDetails from './BookingDetails';
-import TimeSlots from './TimeSlots';
 
 
 const axios = require('axios').default;
