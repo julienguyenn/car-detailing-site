@@ -37,7 +37,6 @@ export default function BookingForm() {
     <div>
       <ClientInfo clientInputs={clientInputs} changeInputs={changeInputs} send={send}/>
       <BookingDetails/>
-      <TimeSlots />
     </div>
   )
 }
