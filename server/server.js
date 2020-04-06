@@ -64,7 +64,14 @@ app.post('/addSchedule', (req, res) => {
 });
 
 app.get('/getTimes/:month/:day/:year', function (req, res) {
-  console.log(req.params)
+  const date = `${req.params.month}/${req.params.day}/${req.params.year}`;
+  pool.query(`
+    SELECT * FROM availability 
+    WHERE date = '${date}'`)
+    .then(res => {
+      console.log(res);
+    })
+    .catch(err => console.log(err.stack))
 })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
