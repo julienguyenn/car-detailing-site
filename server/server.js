@@ -66,10 +66,12 @@ app.post('/addSchedule', (req, res) => {
 app.get('/getTimes/:month/:day/:year', function (req, res) {
   const date = `${req.params.month}/${req.params.day}/${req.params.year}`;
   pool.query(`
-    SELECT * FROM availability 
+    SELECT booked,
+           timeslot
+    FROM availability 
     WHERE date = '${date}'`)
-    .then(res => {
-      console.log(res);
+    .then(data => {
+      res.send(data.rows);
     })
     .catch(err => console.log(err.stack))
 })

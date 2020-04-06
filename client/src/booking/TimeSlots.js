@@ -11,7 +11,7 @@ export default function TimeSlots({ currentDate }) {
   let formattedDate = format(currentDate, 'MM/dd/yyyy');
   
   axios.get(`/getTimes/${formattedDate}`)
-  .then(res => console.log(res))
+  .then(res => console.log(res.data))
   .catch(err => console.log(err));
 
   return (
