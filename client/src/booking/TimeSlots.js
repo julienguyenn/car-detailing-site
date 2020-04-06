@@ -1,4 +1,4 @@
-import React, { useState,  } from 'react';
+import React, { useState, useEffect } from 'react';
 import "./styling/TimeSlots.css"
 import SingleTimeSlot from "./SingleTimeSlot";
 import { format } from 'date-fns';
@@ -10,10 +10,13 @@ export default function TimeSlots({ currentDate }) {
 
   let formattedDate = format(currentDate, 'MM/dd/yyyy');
   
-  axios.get(`/getTimes/${formattedDate}`)
-  .then(res => console.log(res.data))
-  .catch(err => console.log(err));
+  useEffect(() => {
+    axios.get(`/getTimes/${formattedDate}`)
+    .then(res => changeTimes(res.data))
+    .catch(err => console.log(err));
+  }, [])
 
+  console.log(times);
   return (
     <div id="outer-timebox">
       <h5>Available TimeSlots</h5>
