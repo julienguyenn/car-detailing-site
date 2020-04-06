@@ -1,7 +1,9 @@
 import React from 'react';
 
-export default function SingleTimeSlot({}) {
+export default function SingleTimeSlot({ start, end }) {
   return (
-    <div></div>
+    <button>
+      {start} to {end}
+    </button>
   )
 }
