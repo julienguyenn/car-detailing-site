@@ -63,8 +63,8 @@ app.post('/addSchedule', (req, res) => {
   }
 });
 
-app.get('/getTimes/:date', function (req, res) {
-  console.log(req.param)
+app.get('/getTimes/:month/:day/:year', function (req, res) {
+  console.log(req.params)
 })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

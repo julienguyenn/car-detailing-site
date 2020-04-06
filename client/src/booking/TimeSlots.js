@@ -10,7 +10,7 @@ export default function TimeSlots({ currentDate }) {
 
   let formattedDate = format(currentDate, 'MM/dd/yyyy');
   
-  axios.get(`/getTimes/date=${formattedDate}`)
+  axios.get(`/getTimes/${formattedDate}`)
   .then(res => console.log(res))
   .catch(err => console.log(err));
 
