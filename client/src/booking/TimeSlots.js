@@ -6,16 +6,36 @@ const axios = require('axios').default;
 
 
 export default function TimeSlots({ currentDate, duration }) {
-  const [ times, changeTimes ] = useState([]); // all 30min timeslots from database
+  const [ times, changeTimes ] = useState({
+    1: false,
+    2: false,
+    3: false,
+    4: false,
+    5: false,
+    8: false,
+    9: false,
+    10: false,
+    11: false,
+    12: false,
+    11.5: false,
+    3.5: false,
+    4.5: false,
+    9.5: false,
+    10.5: false,
+    8.5: false,
+    12.5: false,
+    1.5: false,
+    2.5: false
+  }); // all 30min timeslots from database
   const [ slots, changeSlots ] = useState({}); // slot where key is start, value is end
 
   let formattedDate = format(currentDate, 'MM/dd/yyyy');
   
-  useEffect(() => {
-    axios.get(`/getTimes/${formattedDate}`)
-    .then(res => changeTimes(res.data))
-    .catch(err => console.log(err));
-  }, [ formattedDate ]);  
+  // useEffect(() => {
+  //   axios.get(`/getTimes/${formattedDate}`)
+  //   .then(res => changeTimes(res.data))
+  //   .catch(err => console.log(err));
+  // }, [ formattedDate ]);  
 
   useEffect(() => { 
     let start = 8;
@@ -27,13 +47,14 @@ export default function TimeSlots({ currentDate, duration }) {
       }
       if (times[temp] === true) {
         start = time;
-      } else if (time - start === duration) {
-        changeSlots((prev) => { return {...prev, [start]: time } });
+      } else if (temp - duration >= start) {
+        changeSlots((prev) => { return {...prev, [temp - duration]: time } });
         start = time;
       }
     }
   }, [ duration, times ])
 
+  console.log(slots)
 
   return (
     <div id="outer-timebox">
