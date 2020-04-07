@@ -71,7 +71,11 @@ app.get('/getTimes/:month/:day/:year', function (req, res) {
     FROM availability 
     WHERE date = '${date}'`)
     .then(data => {
-      res.send(data.rows);
+      let formattedData = {};
+      for (let row of data.rows) {
+        formattedData[row.timeslot] = row.booked;
+      }
+      res.send(formattedData);
     })
     .catch(err => console.log(err.stack))
 })
