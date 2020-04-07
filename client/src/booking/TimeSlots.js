@@ -6,36 +6,16 @@ const axios = require('axios').default;
 
 
 export default function TimeSlots({ currentDate, duration }) {
-  const [ times, changeTimes ] = useState({
-    8: false,
-    8.5: false,
-    9: false,
-    9.5: false,
-    10: true,
-    10.5: false,
-    11: false,
-    11.5: false,
-    12: true,
-    12.5: false,
-    1: false,
-    1.5: false,
-    2: false,
-    2.5: false,
-    3: false,
-    3.5: true,
-    4: true,
-    4.5: false,
-    5: false
-  }); // all 30min timeslots from database
+  const [ times, changeTimes ] = useState({}); // all 30min timeslots from database
   const [ slots, changeSlots ] = useState({}); // slot where key is start, value is end
 
   let formattedDate = format(currentDate, 'MM/dd/yyyy');
   
-  // useEffect(() => {
-  //   axios.get(`/getTimes/${formattedDate}`)
-  //   .then(res => changeTimes(res.data))
-  //   .catch(err => console.log(err));
-  // }, [ formattedDate ]);  
+  useEffect(() => {
+    axios.get(`/getTimes/${formattedDate}`)
+    .then(res => changeTimes(res.data))
+    .catch(err => console.log(err));
+  }, []);  
 
   useEffect(() => { 
     let start = 8;
@@ -52,12 +32,11 @@ export default function TimeSlots({ currentDate, duration }) {
         changeSlots((prev) => { return {...prev, [tempStart]: tempEnd } });
       }
       // if the time slot if taken
-      console.log(time)
       if (times[tempEnd] === true) {
         start = time + 0.5;
       }
     }
-  }, [ duration, times ])
+  }, [])
 
   console.log(slots)
 
