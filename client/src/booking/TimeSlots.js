@@ -13,23 +13,27 @@ export default function TimeSlots({ currentDate, duration }) {
   
   useEffect(() => {
     axios.get(`/getTimes/${formattedDate}`)
-    .then((res) => {
-      changeTimes(res.data);
-    //   let time = 8;
-    //   let start = 8;
-    //   let end = 8;
-    //   while (time <= 5) {
-    //     if (time === 13) {
-    //       time = 1;
-    //     } else if ({
-
-    //     }
-    //   }
-    })
+    .then(res => changeTimes(res.data))
     .catch(err => console.log(err));
-  }, []);  
+  }, [ formattedDate ]);  
 
-  console.log(times)
+  useEffect(() => { 
+    let start = 8;
+    for (let time = 8; time <= 17; time += 0.5) {
+      let temp = time;
+      if (temp > 12.5) {
+       temp -= 12; 
+      }
+      if (times[temp] === true) {
+        start = time + 0.5;
+      } else if (time - start === duration) {
+        changeSlots((prev) => {return {...prev, [start]: time }});
+        start = time + 0.5;
+      }
+    }
+  }, [ duration, times ])
+
+
   return (
     <div id="outer-timebox">
       <h5>Available TimeSlots</h5>
