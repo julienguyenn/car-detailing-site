@@ -40,16 +40,16 @@ export default function TimeSlots({ currentDate, duration }) {
   useEffect(() => { 
     let start = 8;
     for (let time = 8; time <= 17; time += 0.5) {
-      let temp = time;
       // set to 12 hour time if passed 12:30
-      if (temp > 12.5) {
-       temp -= 12; 
-      }
-      if (times[temp] === true) {
+      if (times[time] === true) {
         start = time;
-      } else if (temp - duration >= start) {
-        changeSlots((prev) => { return {...prev, [temp - duration]: time } });
-        start = time;
+      } else if (time - duration >= start) {
+        console.log(time)
+        let temp = time;
+        if (time > 12.5) {
+          temp -= 12;
+        }
+        changeSlots((prev) => { return {...prev, [temp - duration]: temp } });
       }
     }
   }, [ duration, times ])
