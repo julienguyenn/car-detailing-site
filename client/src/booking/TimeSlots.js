@@ -39,11 +39,11 @@ export default function TimeSlots({ currentDate, duration }) {
 
   }, [duration, times])
 
-  // const example = slots.map((slot) => 
-  //   slot
-  // );
+  const example = slots.map((slot) => 
+    slot
+  );
 
-  console.log(slots);
+  console.log(example);
   return (
     <div id="outer-timebox">
       <h5>Available TimeSlots</h5>
