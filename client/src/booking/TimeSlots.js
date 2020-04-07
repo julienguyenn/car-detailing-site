@@ -21,14 +21,15 @@ export default function TimeSlots({ currentDate, duration }) {
     let start = 8;
     for (let time = 8; time <= 17; time += 0.5) {
       let temp = time;
+      // set to 12 hour time if passed 12:30
       if (temp > 12.5) {
        temp -= 12; 
       }
       if (times[temp] === true) {
-        start = time + 0.5;
+        start = time;
       } else if (time - start === duration) {
-        changeSlots((prev) => {return {...prev, [start]: time }});
-        start = time + 0.5;
+        changeSlots((prev) => { return {...prev, [start]: time } });
+        start = time;
       }
     }
   }, [ duration, times ])
