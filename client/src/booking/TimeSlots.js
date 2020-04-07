@@ -44,12 +44,15 @@ export default function TimeSlots({ currentDate, duration }) {
       if (times[time] === true) {
         start = time;
       } else if (time - duration >= start) {
-        console.log(time)
-        let temp = time;
+        let tempEnd = time;
+        let tempStart = time - duration;
         if (time > 12.5) {
-          temp -= 12;
+          tempEnd -= 12;
         }
-        changeSlots((prev) => { return {...prev, [temp - duration]: temp } });
+        if (tempStart > 12.5) {
+          tempStart -= 12;
+        }
+        changeSlots((prev) => { return {...prev, [tempStart]: tempEnd } });
       }
     }
   }, [ duration, times ])
