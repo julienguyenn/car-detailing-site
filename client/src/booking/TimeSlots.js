@@ -5,7 +5,7 @@ import { format } from 'date-fns';
 const axios = require('axios').default;
 
 
-export default function TimeSlots({ currentDate, duration }) {
+export default function TimeSlots({ currentDate, duration, changeBooking }) {
   const [ times, changeTimes ] = useState({}); // all 30min timeslots from database
   const [ slots, changeSlots ] = useState([]); // slot where key is start, value is end
 
@@ -42,14 +42,24 @@ export default function TimeSlots({ currentDate, duration }) {
 
   }, [duration, times])
 
+  function selectTimeSlot(e) {
+    const selectedTime = e.target.value.split("-");
+    changeBooking((prev) => {
+      return {...prev, 
+              startTime: selectedTime[0],
+              endTime: selectedTime[1]}
+                })
+  }
+
   const example = slots.map((ex) => {
     return (
       <SingleTimeSlot 
         key={Object.keys(ex)[0]}
         start={Object.keys(ex)[0]}
-        end={Object.values(ex)[0]} />
+        end={Object.values(ex)[0]}
+        selectTimeSlot={selectTimeSlot} />
     );
-  })
+  });
 
   return (
     <div id="outer-timebox">
