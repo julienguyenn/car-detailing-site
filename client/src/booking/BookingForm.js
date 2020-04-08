@@ -17,6 +17,12 @@ export default function BookingForm() {
     phone: '',
     text: false,
   })
+  const [ bookingInput, changeBooking ] = useState({
+    date: '',
+    startTime: '',
+    endTime: '',
+    serviceID: '',
+  })
 
 
   // sends data to the backend to book appointment
