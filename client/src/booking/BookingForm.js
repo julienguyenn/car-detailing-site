@@ -21,7 +21,7 @@ export default function BookingForm() {
     date: '',
     startTime: '',
     endTime: '',
-    serviceID: '',
+    service: {},
   })
 
   console.log(bookingInput)

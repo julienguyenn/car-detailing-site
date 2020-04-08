@@ -26,6 +26,7 @@ export default function BookingDetails({ bookingInput, changeBooking }) {
   const classes = useStyles();
   const [date, changeDate] = useState(new Date());
   const [services, addServices] = useState([])
+  const [duration, changeDuration] = useState('');
 
   // changed state based on date
   useEffect(() => {
@@ -46,13 +47,13 @@ export default function BookingDetails({ bookingInput, changeBooking }) {
       date: '', 
       startTime: '', 
       endTime: '', 
-      serviceID: event.target.value})
+      service: event.target.value})
   }
 
   // creates the menu item for selection
   let allServices = services.map((info) => {
     return (
-    <MenuItem key={info.id} value={info.id}>{info.service_name}</MenuItem>
+    <MenuItem key={info.id} value={info}>{info.service_name}</MenuItem>
     )
   })
 
@@ -64,17 +65,20 @@ export default function BookingDetails({ bookingInput, changeBooking }) {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={bookingInput.serviceID}
+          value={bookingInput.service}
           onChange={handleServiceChange}
         >
           {allServices}
         </Select>
       </FormControl>
-      <h1>Booking Information</h1>
-      <div id="day-time-box">
-        <Calendar date={date} changeDate={changeDate}/>
-        <TimeSlots currentDate={date} duration={2} changeBooking={changeBooking} />
-      </div>
+      { bookingInput.service !== "" && 
+      <div>
+        <h1>Booking Information</h1>
+        <div id="day-time-box">
+          <Calendar date={date} changeDate={changeDate}/>
+          <TimeSlots currentDate={date} duration={2} changeBooking={changeBooking} />
+        </div>
+      </div> }
     </div>
   )
 }
