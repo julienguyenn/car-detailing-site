@@ -24,6 +24,7 @@ export default function BookingForm() {
     serviceID: '',
   })
 
+  console.log(bookingInput)
 
   // sends data to the backend to book appointment
   function send(e) {
@@ -41,7 +42,7 @@ export default function BookingForm() {
   return (
     <div>
       <ClientInfo clientInputs={clientInputs} changeInputs={changeInputs} send={send}/>
-      <BookingDetails/>
+      <BookingDetails changeBooking={changeBooking} />
     </div>
   )
 }

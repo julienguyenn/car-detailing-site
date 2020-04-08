@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TimeSlots from "./TimeSlots"
 import './styling/BookingDetails.css'
 import Calendar from './Calendar'
 
 
 
-export default function BookingDetails() {
+export default function BookingDetails({ changeBooking }) {
   const [date, changeDate] = useState(new Date());
+
+  useEffect(() => {
+    changeBooking((prev) => {return {...prev, date}});
+  }, [ date ])
 
   return (
     <div>
