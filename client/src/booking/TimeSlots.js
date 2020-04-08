@@ -20,7 +20,7 @@ export default function TimeSlots({ currentDate, duration }) {
 
   // calculates the available timeslots for duration
   useEffect(() => {
-    changeSlots([]) 
+    changeSlots([]); 
     let start = 8;
     for (let time = 8; time <= 17; time += 0.5) {
       let tempEnd = time;
@@ -42,13 +42,20 @@ export default function TimeSlots({ currentDate, duration }) {
 
   }, [duration, times])
 
-  const example = slots.map((ex) => ex);
+  const example = slots.map((ex) => {
+    return (
+      <SingleTimeSlot 
+        key={Object.keys(ex)[0]}
+        start={Object.keys(ex)[0]}
+        end={Object.values(ex)[0]} />
+    );
+  })
 
   return (
     <div id="outer-timebox">
       <h5>Available TimeSlots</h5>
       <div>
-        <SingleTimeSlot start={"8:00"} end={"5:00"} />
+        {example}
       </div>
     </div>
   )
