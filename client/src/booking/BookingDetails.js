@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export default function BookingDetails({ changeBooking }) {
+export default function BookingDetails({ bookingInput, changeBooking }) {
   const classes = useStyles();
   const [date, changeDate] = useState(new Date());
   const [services, addServices] = useState([])
@@ -64,7 +64,7 @@ export default function BookingDetails({ changeBooking }) {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={''}
+          value={bookingInput.serviceID}
           onChange={handleServiceChange}
         >
           {allServices}
