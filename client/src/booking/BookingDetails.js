@@ -6,6 +6,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+
 
 const axios = require('axios').default;
 
@@ -38,9 +40,22 @@ export default function BookingDetails({ changeBooking }) {
     .catch(err => console.log(err));
   }, [])
 
+  // changes booking information when changing service
   function handleServiceChange(event) {
-    
+    changeBooking({
+      date: '', 
+      startTime: '', 
+      endTime: '', 
+      serviceID: event.target.value})
   }
+
+  // creates the menu item for selection
+  let allServices = services.map((info) => {
+    return (
+    <MenuItem key={info.id} value={info.id}>{info.service_name}</MenuItem>
+    )
+  })
+
   return (
     <div>
       <h1>Available Services</h1>
@@ -51,15 +66,8 @@ export default function BookingDetails({ changeBooking }) {
           id="demo-simple-select"
           value={''}
           onChange={handleServiceChange}
-          // inputProps={{
-          //   name: 'age',
-          //   id: 'age-native-simple',
-          // }}
         >
-          {/* <option aria-label="None" value="" />
-          <option value={10}>Ten</option>
-          <option value={20}>Twenty</option>
-          <option value={30}>Thirty</option> */}
+          {allServices}
         </Select>
       </FormControl>
       <h1>Booking Information</h1>
