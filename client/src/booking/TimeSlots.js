@@ -42,13 +42,14 @@ export default function TimeSlots({ currentDate, duration, changeBooking }) {
 
   }, [duration, times])
 
+  // change selected time slot for appointment
   function selectTimeSlot(e) {
     const selectedTime = e.target.value.split("-");
     changeBooking((prev) => {
       return {...prev, 
               startTime: selectedTime[0],
               endTime: selectedTime[1]}
-                })
+    })
   }
 
   const example = slots.map((ex) => {

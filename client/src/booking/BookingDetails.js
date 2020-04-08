@@ -8,8 +8,11 @@ import Calendar from './Calendar'
 export default function BookingDetails({ changeBooking }) {
   const [date, changeDate] = useState(new Date());
 
+  // changed state based on date
   useEffect(() => {
-    changeBooking((prev) => {return {...prev, startTime: '', endTime: '', date}});
+    changeBooking((prev) => {
+      return {...prev, startTime: '', endTime: '', date}
+    });
   }, [ date ])
 
   return (
