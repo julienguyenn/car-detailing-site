@@ -9,15 +9,18 @@ export default function TimeSlots({ currentDate, duration }) {
   const [ times, changeTimes ] = useState({}); // all 30min timeslots from database
   const [ slots, changeSlots ] = useState([]); // slot where key is start, value is end
 
+  // gets the times from database
   useEffect(() => {
     let formattedDate = format(currentDate, 'MM/dd/yyyy');
     axios.get(`/getTimes/${formattedDate}`)
     .then(res => changeTimes(res.data))
     .catch(err => console.log(err));
 
-  }, [currentDate]);  
+  }, [ currentDate ]);  
 
-  useEffect(() => { 
+  // calculates the available timeslots for duration
+  useEffect(() => {
+    changeSlots([]) 
     let start = 8;
     for (let time = 8; time <= 17; time += 0.5) {
       let tempEnd = time;
@@ -39,11 +42,8 @@ export default function TimeSlots({ currentDate, duration }) {
 
   }, [duration, times])
 
-  const example = slots.map((slot) => 
-    slot
-  );
+  const example = slots.map((ex) => ex);
 
-  console.log(example);
   return (
     <div id="outer-timebox">
       <h5>Available TimeSlots</h5>
