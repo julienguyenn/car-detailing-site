@@ -13,10 +13,15 @@ export default function BookingDetails({ changeBooking }) {
     changeBooking((prev) => {
       return {...prev, startTime: '', endTime: '', date}
     });
-  }, [ date ])
+  }, [ date ]);
+
+  useEffect(() => {
+    
+  })
 
   return (
     <div>
+      <h1>Available Services</h1>
       <h1>Booking Information</h1>
       <div id="day-time-box">
         <Calendar date={date} changeDate={changeDate}/>
