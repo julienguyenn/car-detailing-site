@@ -9,6 +9,7 @@ const axios = require('axios').default;
 
 export default function BookingDetails({ changeBooking }) {
   const [date, changeDate] = useState(new Date());
+  const [services, addServices] = useState([])
 
   // changed state based on date
   useEffect(() => {
