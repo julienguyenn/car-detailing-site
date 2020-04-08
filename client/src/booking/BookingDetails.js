@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import TimeSlots from "./TimeSlots"
 import './styling/BookingDetails.css'
-import Calendar from './Calendar'
+import Calendar from './Calendar';
+const axios = require('axios').default;
+
 
 
 
@@ -13,11 +15,13 @@ export default function BookingDetails({ changeBooking }) {
     changeBooking((prev) => {
       return {...prev, startTime: '', endTime: '', date}
     });
-  }, [ date ]);
+  }, [ date, changeBooking ]);
 
   useEffect(() => {
-    
-  })
+    axios.get('/getServices')
+    .then((res) => console.log(res))
+    .catch(err => console.log(err));
+  }, [])
 
   return (
     <div>
