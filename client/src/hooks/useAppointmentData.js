@@ -4,6 +4,7 @@ import { addDays } from 'date-fns';
 
 const GET_SERVICES = "GET_SERVICES";
 const CHANGE_DATE = "CHANGE_DATE"
+const CHANGE_SERVICE = "CHANGE_SERVICE";
 
 function reducer(state, action) {
   switch (action.type) {
@@ -13,6 +14,9 @@ function reducer(state, action) {
     case CHANGE_DATE: {
       return {...state, startTime: '', endTime: '', date: action.value}
 
+    }
+    case CHANGE_SERVICE: {
+      return {...state, startTime: '', endTime:'', serviceInfo: action.value}
     }
     default:
       throw new Error();
@@ -24,7 +28,7 @@ export default function useAppointmentData() {
     date: addDays(new Date(), 1),
     startTime: '',
     endTime: '',
-    serviceInfo: '',
+    serviceInfo: {},
     allServices: []
   });
 
@@ -36,5 +40,10 @@ export default function useAppointmentData() {
 
   const changeDate = date => dispatch({ type: CHANGE_DATE, value: date })
 
-  return { bookingInput, changeDate }
+  function changeService(id) {
+    return axios.get(`/getService/${id}`)
+    .then(res => dispatch({ type: CHANGE_SERVICE, value: (res.data[0]) }));
+  }
+
+  return { bookingInput, changeDate, changeService }
 }

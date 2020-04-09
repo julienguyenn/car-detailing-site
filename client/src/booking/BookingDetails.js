@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import TimeSlots from "./TimeSlots"
 import './styling/BookingDetails.css'
 import Calendar from './Calendar';
@@ -22,30 +22,15 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export default function BookingDetails({ bookingInput, changeDate }) {
+export default function BookingDetails({ bookingInput, changeDate, changeService }) {
   const classes = useStyles();
   const [serviceID, changeServiceInput] = useState(1); 
-  const [serviceDuration, changeDuration] = useState("");
 
-
-  // // gets the service information
-  // useEffect(() => {
-  //   axios.get(`/getService/${serviceID}`)
-  //   .then(res => changeDuration(res.data[0].time))
-  //   .catch(err => console.log(err));
-  // }, [serviceID])
 
   // changes booking information when changing service
   function handleServiceChange(event) {
     changeServiceInput(event.target.value);
-    // changeService(event.target.value);
-    // changeBooking((prev) => { return { ...prev, 
-    //                                    startTime: '', 
-    //                                    endTime: '', 
-    //                                    serviceID: event.target.value 
-    //                                   }
-    //                         }
-    //               )
+    changeService(event.target.value);
   }
 
   // creates the menu item for selection
@@ -72,7 +57,7 @@ export default function BookingDetails({ bookingInput, changeDate }) {
         <h1>Booking Information</h1>
         <div id="day-time-box">
           <Calendar date={bookingInput.date} changeDate={changeDate}/>
-          {/* <TimeSlots currentDate={date} duration={serviceDuration} /> */}
+          <TimeSlots currentDate={bookingInput.date} duration={bookingInput.serviceInfo.time} />
         </div>
     </div>
   )
