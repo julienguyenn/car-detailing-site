@@ -89,4 +89,6 @@ app.get('/getServices', function (req, res) {
     .catch(err => console.log(err.stack))
 })
 
+`/getService/${currentService}`
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

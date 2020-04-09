@@ -25,7 +25,8 @@ const useStyles = makeStyles(theme => ({
 export default function BookingDetails({ bookingInput, changeBooking }) {
   const classes = useStyles();
   const [date, changeDate] = useState(new Date());
-  const [services, addServices] = useState([])
+  const [services, addServices] = useState([]);
+  const [currentService, changeService] = useState({})
 
   // changed state based on date
   useEffect(() => {
@@ -34,14 +35,23 @@ export default function BookingDetails({ bookingInput, changeBooking }) {
     });
   }, [ date, changeBooking ]);
 
+  // gets all services in database
   useEffect(() => {
     axios.get('/getServices')
     .then((res) => addServices(res.data))
     .catch(err => console.log(err));
-  }, [])
+  }, []);
+
+  // gets the service information
+  useEffect(() => {
+    axios.get(`/getService/${currentService}`)
+    .then(res => console.log(res))
+    .catch(err => console.log(err));
+  })
 
   // changes booking information when changing service
   function handleServiceChange(event) {
+    changeService(event.target.value);
     changeBooking((prev) => { return { ...prev, 
                                        startTime: '', 
                                        endTime: '', 
@@ -77,7 +87,7 @@ export default function BookingDetails({ bookingInput, changeBooking }) {
         <h1>Booking Information</h1>
         <div id="day-time-box">
           <Calendar date={date} changeDate={changeDate}/>
-          <TimeSlots currentDate={date} duration={2} changeBooking={changeBooking} />
+          <TimeSlots currentDate={date} duration={currentService} changeBooking={changeBooking} />
         </div>
       </div> }
     </div>
