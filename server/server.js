@@ -80,4 +80,13 @@ app.get('/getTimes/:month/:day/:year', function (req, res) {
     .catch(err => console.log(err.stack))
 })
 
+app.get('/getServices', function (req, res) {
+  pool.query(`
+    SELECT * FROM services`)
+    .then(data => {
+      res.send(data.rows);
+    })
+    .catch(err => console.log(err.stack))
+})
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

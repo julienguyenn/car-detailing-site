@@ -26,7 +26,6 @@ export default function BookingDetails({ bookingInput, changeBooking }) {
   const classes = useStyles();
   const [date, changeDate] = useState(new Date());
   const [services, addServices] = useState([])
-  const [duration, changeDuration] = useState('');
 
   // changed state based on date
   useEffect(() => {
@@ -65,7 +64,7 @@ export default function BookingDetails({ bookingInput, changeBooking }) {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={bookingInput.service}
+          value={bookingInput.service.id}
           onChange={handleServiceChange}
         >
           {allServices}
