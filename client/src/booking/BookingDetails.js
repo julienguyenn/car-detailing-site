@@ -46,7 +46,7 @@ export default function BookingDetails({ bookingInput, changeBooking }) {
   // gets the service information
   useEffect(() => {
     axios.get(`/getService/${currentService}`)
-    .then(res => console.log(res))
+    .then(res => changeDuration(res.data[0].time))
     .catch(err => console.log(err));
   }, [currentService])
 
@@ -69,6 +69,7 @@ export default function BookingDetails({ bookingInput, changeBooking }) {
     )
   })
 
+  console.log(serviceDuration)
   return (
     <div>
       <h1>Available Services</h1>
@@ -88,7 +89,7 @@ export default function BookingDetails({ bookingInput, changeBooking }) {
         <h1>Booking Information</h1>
         <div id="day-time-box">
           <Calendar date={date} changeDate={changeDate}/>
-          <TimeSlots currentDate={date} duration={currentService} changeBooking={changeBooking} />
+          <TimeSlots currentDate={date} duration={serviceDuration} changeBooking={changeBooking} />
         </div>
       </div> }
     </div>
