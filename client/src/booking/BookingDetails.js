@@ -69,7 +69,6 @@ export default function BookingDetails({ bookingInput, changeBooking }) {
     )
   })
 
-  console.log(serviceDuration)
   return (
     <div>
       <h1>Available Services</h1>

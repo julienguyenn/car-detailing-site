@@ -24,7 +24,6 @@ export default function BookingForm() {
     serviceID: '',
   })
 
-  console.log(bookingInput)
 
   // sends data to the backend to book appointment
   function send(e) {
