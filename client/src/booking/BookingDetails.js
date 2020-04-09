@@ -42,11 +42,13 @@ export default function BookingDetails({ bookingInput, changeBooking }) {
 
   // changes booking information when changing service
   function handleServiceChange(event) {
-    changeBooking({
-      date: '', 
-      startTime: '', 
-      endTime: '', 
-      serviceID: event.target.value })
+    changeBooking((prev) => { return { ...prev, 
+                                       startTime: '', 
+                                       endTime: '', 
+                                       serviceID: event.target.value 
+                                      }
+                            }
+                  )
   }
 
   // creates the menu item for selection
