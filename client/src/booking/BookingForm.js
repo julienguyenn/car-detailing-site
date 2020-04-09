@@ -18,8 +18,8 @@ export default function BookingForm() {
     phone: '',
     text: false,
   })
-  const { bookingInput } = useAppointmentData();
-
+  const { bookingInput, changeDate } = useAppointmentData();
+  console.log(bookingInput)
 
   // sends data to the backend to book appointment
   function send(e) {
@@ -37,7 +37,7 @@ export default function BookingForm() {
   return (
     <div>
       <ClientInfo clientInputs={clientInputs} changeInputs={changeInputs} send={send}/>
-      <BookingDetails bookingInput={bookingInput} changeBooking={changeBooking} />
+      <BookingDetails bookingInput={bookingInput} changeDate={changeDate} />
     </div>
   )
 }

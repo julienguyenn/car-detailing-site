@@ -22,49 +22,34 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export default function BookingDetails({ bookingInput, changeBooking }) {
+export default function BookingDetails({ bookingInput, changeDate }) {
   const classes = useStyles();
   const [serviceID, changeServiceInput] = useState(1); 
-  const [date, changeDate] = useState(new Date());
-  const [services, addServices] = useState([]);
   const [serviceDuration, changeDuration] = useState("");
 
-  // changed state based on date
-  useEffect(() => {
-    changeBooking((prev) => {
-      return {...prev, startTime: '', endTime: '', date}
-    });
-  }, [ date, changeBooking ]);
 
-  // gets all services in database
-  useEffect(() => {
-    axios.get('/getServices')
-    .then((res) => addServices(res.data))
-    .catch(err => console.log(err));
-  }, []);
-
-  // gets the service information
-  useEffect(() => {
-    axios.get(`/getService/${serviceID}`)
-    .then(res => changeDuration(res.data[0].time))
-    .catch(err => console.log(err));
-  }, [serviceID])
+  // // gets the service information
+  // useEffect(() => {
+  //   axios.get(`/getService/${serviceID}`)
+  //   .then(res => changeDuration(res.data[0].time))
+  //   .catch(err => console.log(err));
+  // }, [serviceID])
 
   // changes booking information when changing service
   function handleServiceChange(event) {
     changeServiceInput(event.target.value);
-    changeService(event.target.value);
-    changeBooking((prev) => { return { ...prev, 
-                                       startTime: '', 
-                                       endTime: '', 
-                                       serviceID: event.target.value 
-                                      }
-                            }
-                  )
+    // changeService(event.target.value);
+    // changeBooking((prev) => { return { ...prev, 
+    //                                    startTime: '', 
+    //                                    endTime: '', 
+    //                                    serviceID: event.target.value 
+    //                                   }
+    //                         }
+    //               )
   }
 
   // creates the menu item for selection
-  let allServices = services.map((info) => {
+  let allServices = bookingInput.allServices.map((info) => {
     return (
     <MenuItem key={info.id} value={info.id}>{info.service_name}</MenuItem>
     )
@@ -84,14 +69,11 @@ export default function BookingDetails({ bookingInput, changeBooking }) {
           {allServices}
         </Select>
       </FormControl>
-      { bookingInput.serviceID !== '' && 
-      <div>
         <h1>Booking Information</h1>
         <div id="day-time-box">
-          <Calendar date={date} changeDate={changeDate}/>
-          <TimeSlots currentDate={date} duration={serviceDuration} changeBooking={changeBooking} />
+          <Calendar date={bookingInput.date} changeDate={changeDate}/>
+          {/* <TimeSlots currentDate={date} duration={serviceDuration} /> */}
         </div>
-      </div> }
     </div>
   )
 }
