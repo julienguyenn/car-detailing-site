@@ -1,30 +1,13 @@
 import axios from "axios";
 import { useReducer, useEffect } from "react";
 import { addDays } from 'date-fns';
-
-const GET_SERVICES = "GET_SERVICES";
-const CHANGE_DATE = "CHANGE_DATE"
-const CHANGE_SERVICE = "CHANGE_SERVICE";
-
-function reducer(state, action) {
-  switch (action.type) {
-    case GET_SERVICES: {
-      return {...state, allServices: action.value}
-    }
-    case CHANGE_DATE: {
-      return {...state, startTime: '', endTime: '', date: action.value}
-
-    }
-    case CHANGE_SERVICE: {
-      return {...state, startTime: '', endTime:'', serviceInfo: action.value}
-    }
-    default:
-      throw new Error();
-  }
-}
+import appointmentReducer, {
+  GET_SERVICES, 
+  CHANGE_DATE, 
+  CHANGE_SERVICE } from '../reducers/appointment'
 
 export default function useAppointmentData() {
-  const [bookingInput, dispatch] = useReducer(reducer, {
+  const [bookingInput, dispatch] = useReducer(appointmentReducer, {
     date: addDays(new Date(), 1),
     startTime: '',
     endTime: '',

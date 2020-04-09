@@ -6,10 +6,6 @@ import useAppointmentData from '../hooks/useAppointmentData';
 
 const axios = require('axios').default;
 
-
-// This handles the form to book an appointment
-// still need to do validations
-
 export default function BookingForm() {
   const [clientInputs, changeInputs] = useState({
     first_name: '',
@@ -18,6 +14,8 @@ export default function BookingForm() {
     phone: '',
     text: false,
   })
+
+  // handles service and date information
   const { bookingInput, changeDate, changeService } = useAppointmentData();
   console.log(bookingInput)
 
