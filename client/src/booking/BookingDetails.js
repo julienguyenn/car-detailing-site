@@ -24,10 +24,9 @@ const useStyles = makeStyles(theme => ({
 
 export default function BookingDetails({ bookingInput, changeBooking }) {
   const classes = useStyles();
-  const [serviceID, changeServiceInput] = useState(""); 
+  const [serviceID, changeServiceInput] = useState(1); 
   const [date, changeDate] = useState(new Date());
   const [services, addServices] = useState([]);
-  const [currentService, changeService] = useState({})
   const [serviceDuration, changeDuration] = useState("");
 
   // changed state based on date
@@ -46,10 +45,10 @@ export default function BookingDetails({ bookingInput, changeBooking }) {
 
   // gets the service information
   useEffect(() => {
-    axios.get(`/getService/${currentService}`)
+    axios.get(`/getService/${serviceID}`)
     .then(res => changeDuration(res.data[0].time))
     .catch(err => console.log(err));
-  }, [currentService])
+  }, [serviceID])
 
   // changes booking information when changing service
   function handleServiceChange(event) {

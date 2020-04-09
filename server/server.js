@@ -91,6 +91,7 @@ app.get('/getServices', function (req, res) {
 
 app.get(`/getService/:id`, function (req, res) {
   const service = req.params.id;
+  console.log(service)
   pool.query(`
     SELECT * FROM services
     WHERE id=${service}`)

@@ -21,7 +21,8 @@ export default function BookingForm() {
     date: '',
     startTime: '',
     endTime: '',
-    serviceID: '',
+    serviceInfo: '',
+    allServices: []
   })
 
 
