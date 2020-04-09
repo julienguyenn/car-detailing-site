@@ -24,6 +24,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function BookingDetails({ bookingInput, changeBooking }) {
   const classes = useStyles();
+  const [serviceID, changeServiceInput] = useState(""); 
   const [date, changeDate] = useState(new Date());
   const [services, addServices] = useState([]);
   const [currentService, changeService] = useState({})
@@ -52,6 +53,7 @@ export default function BookingDetails({ bookingInput, changeBooking }) {
 
   // changes booking information when changing service
   function handleServiceChange(event) {
+    changeServiceInput(event.target.value);
     changeService(event.target.value);
     changeBooking((prev) => { return { ...prev, 
                                        startTime: '', 
@@ -77,7 +79,7 @@ export default function BookingDetails({ bookingInput, changeBooking }) {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={bookingInput.serviceID}
+          value={serviceID}
           onChange={handleServiceChange}
         >
           {allServices}
