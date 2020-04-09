@@ -28,7 +28,7 @@ export default function useAppointmentData() {
     getTimeSlots(bookingInput.serviceInfo.time, bookingInput.date);
   }
 
-  function getTimeSlots(duration, day) {
+  function getTimeSlots(duration) {
     let formattedDate = format(bookingInput.date, 'MM/dd/yyyy');
     axios.get(`/getTimes/${formattedDate}`)
     .then(res => dispatch({type: GET_TIMES, value: { duration, data: res.data }}));
