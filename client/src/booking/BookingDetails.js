@@ -9,8 +9,6 @@ import Select from '@material-ui/core/Select';
 import MenuItem from '@material-ui/core/MenuItem';
 
 
-const axios = require('axios').default;
-
 const useStyles = makeStyles(theme => ({
   formControl: {
     margin: theme.spacing(1),
@@ -24,7 +22,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function BookingDetails({ bookingInput, changeDate, changeService }) {
   const classes = useStyles();
-  const [serviceID, changeServiceInput] = useState(1); 
+  const [serviceID, changeServiceInput] = useState(''); 
 
 
   // changes booking information when changing service
@@ -54,11 +52,15 @@ export default function BookingDetails({ bookingInput, changeDate, changeService
           {allServices}
         </Select>
       </FormControl>
-        <h1>Booking Information</h1>
-        <div id="day-time-box">
-          <Calendar date={bookingInput.date} changeDate={changeDate}/>
-          <TimeSlots currentDate={bookingInput.date} duration={bookingInput.serviceInfo.time} />
+      { serviceID !== '' && (
+        <div>
+          <h1>Booking Information</h1>
+          <div id="day-time-box">
+            <Calendar changeDate={changeDate}/>
+            <TimeSlots currentDate={bookingInput.date} duration={bookingInput.serviceInfo.time} />
+          </div>
         </div>
+      )}
     </div>
   )
 }

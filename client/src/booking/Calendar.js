@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { addDays } from 'date-fns';
 import DateFnsUtils from '@date-io/date-fns';
 import {
@@ -8,9 +8,14 @@ import { DatePicker } from "@material-ui/pickers";
 import { getLastAddedDate } from '../helpers/getLastAddedDate'
 
 
-export default function BookingDetails({ date, changeDate }) {
+export default function BookingDetails({ changeDate }) {
+  const [date, newDate] = useState(addDays(new Date(), 1));
   let lastScheduledDate = getLastAddedDate() ? getLastAddedDate() : new Date();
 
+  function handleDateChange(day) {
+    newDate(day);
+    changeDate(day);
+  }
   return (
     <MuiPickersUtilsProvider utils={DateFnsUtils}>
       <DatePicker
@@ -19,7 +24,7 @@ export default function BookingDetails({ date, changeDate }) {
         variant="static"
         openTo="date"
         value={date}
-        onChange={changeDate}
+        onChange={handleDateChange}
         format="MM/dd/yyyy"
         minDate={addDays(new Date(), 1)}
         maxDate={lastScheduledDate} // show available dates
