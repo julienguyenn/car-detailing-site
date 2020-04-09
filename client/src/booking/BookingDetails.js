@@ -27,6 +27,7 @@ export default function BookingDetails({ bookingInput, changeBooking }) {
   const [date, changeDate] = useState(new Date());
   const [services, addServices] = useState([]);
   const [currentService, changeService] = useState({})
+  const [serviceDuration, changeDuration] = useState("");
 
   // changed state based on date
   useEffect(() => {
@@ -47,7 +48,7 @@ export default function BookingDetails({ bookingInput, changeBooking }) {
     axios.get(`/getService/${currentService}`)
     .then(res => console.log(res))
     .catch(err => console.log(err));
-  })
+  }, [currentService])
 
   // changes booking information when changing service
   function handleServiceChange(event) {

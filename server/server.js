@@ -89,6 +89,9 @@ app.get('/getServices', function (req, res) {
     .catch(err => console.log(err.stack))
 })
 
-`/getService/${currentService}`
+app.get(`/getService/:id`, function (req, res) {
+  const service = req.params.id;
+  console.log(service)
+})
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
