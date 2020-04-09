@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ClientInfo from './ClientInfo';
 import BookingDetails from './BookingDetails';
+import useAppointmentData from '../hooks/useAppointmentData';
 
 
 const axios = require('axios').default;
@@ -17,13 +18,7 @@ export default function BookingForm() {
     phone: '',
     text: false,
   })
-  const [ bookingInput, changeBooking ] = useState({
-    date: '',
-    startTime: '',
-    endTime: '',
-    serviceInfo: '',
-    allServices: []
-  })
+  const { bookingInput } = useAppointmentData();
 
 
   // sends data to the backend to book appointment
