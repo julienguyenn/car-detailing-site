@@ -46,13 +46,13 @@ export default function BookingDetails({ bookingInput, changeBooking }) {
       date: '', 
       startTime: '', 
       endTime: '', 
-      service: event.target.value})
+      serviceID: event.target.value })
   }
 
   // creates the menu item for selection
   let allServices = services.map((info) => {
     return (
-    <MenuItem key={info.id} value={info}>{info.service_name}</MenuItem>
+    <MenuItem key={info.id} value={info.id}>{info.service_name}</MenuItem>
     )
   })
 
@@ -64,13 +64,13 @@ export default function BookingDetails({ bookingInput, changeBooking }) {
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={bookingInput.service.id}
+          value={bookingInput.serviceID}
           onChange={handleServiceChange}
         >
           {allServices}
         </Select>
       </FormControl>
-      { bookingInput.service !== "" && 
+      { bookingInput.serviceID !== '' && 
       <div>
         <h1>Booking Information</h1>
         <div id="day-time-box">
