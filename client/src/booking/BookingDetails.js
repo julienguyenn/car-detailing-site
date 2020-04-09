@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export default function BookingDetails({ bookingInput, changeDate, changeService }) {
+export default function BookingDetails({ bookingInput, changeDate, changeService, getTimeSlots }) {
   const classes = useStyles();
   const [serviceID, changeServiceInput] = useState(''); 
 
@@ -57,7 +57,7 @@ export default function BookingDetails({ bookingInput, changeDate, changeService
           <h1>Booking Information</h1>
           <div id="day-time-box">
             <Calendar changeDate={changeDate}/>
-            <TimeSlots currentDate={bookingInput.date} duration={bookingInput.serviceInfo.time} />
+            <TimeSlots slots={bookingInput.timeSlots} />
           </div>
         </div>
       )}

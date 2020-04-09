@@ -35,7 +35,10 @@ export default function BookingForm() {
   return (
     <div>
       <ClientInfo clientInputs={clientInputs} changeInputs={changeInputs} send={send}/>
-      <BookingDetails bookingInput={bookingInput} changeDate={changeDate} changeService={changeService} />
+      <BookingDetails 
+        bookingInput={bookingInput} 
+        changeDate={changeDate} 
+        changeService={changeService} />
     </div>
   )
 }
