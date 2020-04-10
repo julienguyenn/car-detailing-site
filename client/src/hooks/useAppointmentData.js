@@ -4,7 +4,8 @@ import { addDays, format } from 'date-fns';
 import appointmentReducer, {
   GET_SERVICES, 
   CHANGE_DATE, 
-  CHANGE_SERVICE } from '../reducers/appointment'
+  CHANGE_SERVICE,
+  SELECT_SLOT } from '../reducers/appointment'
 
 export default function useAppointmentData() {
   const [bookingInput, dispatch] = useReducer(appointmentReducer, {
@@ -49,6 +50,15 @@ export default function useAppointmentData() {
     })
   }
 
+  // selects a timeslot to book
+  function bookSlot(slot) {
+    const selectedTime = slot.split("-");
+    dispatch({ type: SELECT_SLOT, 
+               value: { start: selectedTime[0],
+                        end: selectTime[1] }
+            });
+  }
 
-  return { bookingInput, changeDate, changeService }
+
+  return { bookingInput, changeDate, changeService, bookSlot }
 }

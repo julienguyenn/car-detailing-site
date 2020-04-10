@@ -17,6 +17,9 @@ export default function appointmentReducer(state, action) {
       const slots = getTimeSlots(action.value.service.time, action.value.times);
       return {...state, startTime: '', endTime:'', serviceInfo: action.value.service, timeSlots: slots }
     }
+    case SELECT_SLOT: {
+      return {...state, startTime: action.value.start, endTime: action.value.end }
+    }
     default:
       throw new Error();
   }
