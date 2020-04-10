@@ -1,11 +1,10 @@
 import axios from "axios";
 import { useReducer, useEffect } from "react";
-import { addDays, format } from 'date-fns';
+import { addDays } from 'date-fns';
 import appointmentReducer, {
   GET_SERVICES, 
   CHANGE_DATE, 
-  CHANGE_SERVICE,
-  GET_TIMES } from '../reducers/appointment'
+  CHANGE_SERVICE } from '../reducers/appointment'
 
 export default function useAppointmentData() {
   const [bookingInput, dispatch] = useReducer(appointmentReducer, {
@@ -25,20 +24,18 @@ export default function useAppointmentData() {
 
   function changeDate(date) {
     dispatch({ type: CHANGE_DATE, value: date })
-    getTimeSlots(bookingInput.serviceInfo.time, bookingInput.date);
-  }
-
-  function getTimeSlots(duration) {
-    let formattedDate = format(bookingInput.date, 'MM/dd/yyyy');
-    axios.get(`/getTimes/${formattedDate}`)
-    .then(res => dispatch({type: GET_TIMES, value: { duration, data: res.data }}));
   }
 
   function changeService(id) {
-    return axios.get(`/getService/${id}`)
-    .then(res => {
-      dispatch({ type: CHANGE_SERVICE, value: (res.data[0]) });
-      getTimeSlots(res.data[0].time, bookingInput.date);
+    let formattedDate = format(bookingInput.date, 'MM/dd/yyyy');
+    return Promise.all([
+      axios.get(`/getService/${id}`),
+      axios.get(`/getTimes/${formattedDate}`)
+    ])
+    .then(all => {
+      dispatch({ type: CHANGE_SERVICE, 
+                 value: { data: res.data[0],
+                          date: bookingInput.date } });
     })
   }
 

@@ -7,6 +7,7 @@ export default function TimeSlots({ slots }) {
 
   // change selected time slot for appointment
   function selectTimeSlot(e) {
+    console.log("selected")
     // const selectedTime = e.target.value.split("-");
     // changeBooking((prev) => {
     //   return {...prev, 

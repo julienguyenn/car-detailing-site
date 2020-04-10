@@ -1,8 +1,8 @@
+import getTimeSlots from '../helpers/getSlots';
 export const GET_SERVICES = "GET_SERVICES";
 export const CHANGE_DATE = "CHANGE_DATE"
 export const CHANGE_SERVICE = "CHANGE_SERVICE";
 export const GET_TIMES = "GET_TIMES";
-
 
 export default function appointmentReducer(state, action) {
   switch (action.type) {
@@ -11,9 +11,9 @@ export default function appointmentReducer(state, action) {
     }
     case CHANGE_DATE: {
       return {...state, startTime: '', endTime: '', date: action.value}
-
     }
     case CHANGE_SERVICE: {
+      console.log(action.value)
       return {...state, startTime: '', endTime:'', serviceInfo: action.value}
     }
     default:
