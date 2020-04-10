@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-export default function BookingDetails({ bookingInput, changeDate, changeService, getTimeSlots }) {
+export default function BookingDetails({ bookingInput, changeDate, changeService }) {
   const classes = useStyles();
   const [serviceID, changeServiceInput] = useState(''); 
 

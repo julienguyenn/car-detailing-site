@@ -1,4 +1,4 @@
-
+// calculate all the time slots available for the duration
 export default function getTimeSlots(duration, times) {
   let start = 8;
   let result = [];
