@@ -13,8 +13,8 @@ export default function appointmentReducer(state, action) {
       return {...state, startTime: '', endTime: '', date: action.value}
     }
     case CHANGE_SERVICE: {
-      console.log(action.value)
-      return {...state, startTime: '', endTime:'', serviceInfo: action.value}
+      const slots = getTimeSlots(action.value.service.time, action.value.times);
+      return {...state, startTime: '', endTime:'', serviceInfo: action.value.service, timeSlots: slots }
     }
     default:
       throw new Error();

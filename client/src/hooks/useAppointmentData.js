@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useReducer, useEffect } from "react";
-import { addDays } from 'date-fns';
+import { addDays, format } from 'date-fns';
 import appointmentReducer, {
   GET_SERVICES, 
   CHANGE_DATE, 
@@ -34,8 +34,8 @@ export default function useAppointmentData() {
     ])
     .then(all => {
       dispatch({ type: CHANGE_SERVICE, 
-                 value: { data: res.data[0],
-                          date: bookingInput.date } });
+                 value: { service: all[0].data[0],
+                          times: all[1].data } });
     })
   }
 
