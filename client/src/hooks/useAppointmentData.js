@@ -23,7 +23,15 @@ export default function useAppointmentData() {
   }, []);
 
   function changeDate(date) {
-    dispatch({ type: CHANGE_DATE, value: date })
+    let formattedDate = format(date, 'MM/dd/yyyy');
+    return axios.get(`/getTimes/${formattedDate}`)
+    .then(res => {
+      dispatch({ type: CHANGE_DATE, 
+        value: { date,
+                 service: bookingInput.serviceInfo,
+                 times: res.data }
+                })
+    })
   }
 
   function changeService(id) {

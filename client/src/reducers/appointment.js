@@ -10,7 +10,8 @@ export default function appointmentReducer(state, action) {
       return {...state, allServices: action.value}
     }
     case CHANGE_DATE: {
-      return {...state, startTime: '', endTime: '', date: action.value}
+      const dateSlots = getTimeSlots(action.value.service.time, action.value.times);
+      return {...state, startTime: '', endTime: '', date: action.value.date, timeSlots: dateSlots}
     }
     case CHANGE_SERVICE: {
       const slots = getTimeSlots(action.value.service.time, action.value.times);
