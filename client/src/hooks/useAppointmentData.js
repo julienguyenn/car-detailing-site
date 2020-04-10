@@ -52,10 +52,10 @@ export default function useAppointmentData() {
 
   // selects a timeslot to book
   function bookSlot(slot) {
-    const selectedTime = slot.split("-");
+    const selectedTime = slot.target.value.split("-");
     dispatch({ type: SELECT_SLOT, 
                value: { start: selectedTime[0],
-                        end: selectTime[1] }
+                        end: selectedTime[1] }
             });
   }
 

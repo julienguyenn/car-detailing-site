@@ -3,6 +3,7 @@ export const GET_SERVICES = "GET_SERVICES";
 export const CHANGE_DATE = "CHANGE_DATE"
 export const CHANGE_SERVICE = "CHANGE_SERVICE";
 export const GET_TIMES = "GET_TIMES";
+export const SELECT_SLOT = "SELECT_SLOT";
 
 export default function appointmentReducer(state, action) {
   switch (action.type) {

@@ -4,9 +4,6 @@ const { Pool } = require('pg');
 const bodyParser = require("body-parser");
 const app = express();
 const port = 8080;
-// const { addDays,
-//   format,
-//   compareAsc } = require("date-fns");
 
 // Use the below to do queries through here
 const pool = new Pool({
