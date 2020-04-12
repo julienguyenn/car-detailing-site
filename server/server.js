@@ -30,10 +30,10 @@ app.post('/addAppointment', (req, res) => {
     
     INSERT INTO appointments ("client_id", "service_id", "start_time", "end_time", "date", "year")
        VALUES
-        ((SELECT id FROM clients WHERE phone = "${phone}"),
+        ((SELECT id FROM clients WHERE phone = '${phone}'),
         ${req.body.serviceId},
-        ${req.body.startTime},
-        ${req.body.endTime},
+        ${Number(req.body.startTime)},
+        ${Number(req.body.endTime)},
         ${req.body.date},
         ${req.body.year})`
   )

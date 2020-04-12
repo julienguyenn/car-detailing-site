@@ -60,6 +60,7 @@ export default function useAppointmentData() {
   }
 
   function bookAppointment(data) {
+    console.log(data)
     axios.post('/addAppointment', data)
     .then(function (response) {
       console.log(response);
