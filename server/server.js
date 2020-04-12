@@ -31,9 +31,9 @@ app.post('/addAppointment', (req, res) => {
       '${client.phone}', 
       ${client.text})
     ON CONFLICT ("phone") DO UPDATE
-      SET text = EXCLUDED.text
-          first_name = EXCLUDED.first_name
-          last_name = EXCLUDED.last_name
+      SET text = EXCLUDED.text,
+          first_name = EXCLUDED.first_name,
+          last_name = EXCLUDED.last_name,
           email = EXCLUDED.email;
     
     INSERT INTO appointments ("client_id", "service_id", "start_time", "end_time", "date", "year")
@@ -44,7 +44,11 @@ app.post('/addAppointment', (req, res) => {
         ${Number(req.body.endTime)},
         ${req.body.date},
         ${req.body.year});
-  
+    
+    UPDATE availability 
+    SET booked = TRUE
+    WHERE timeslot >= ${Number(req.body.startTime)} AND timeslot < ${Number(req.body.endTime)};
+
     DELETE from appointments WHERE year < ${req.body.year};`
   )
   .then(res => {
