@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import ClientInfo from './ClientInfo';
 import BookingDetails from './BookingDetails';
 import useAppointmentData from '../hooks/useAppointmentData';
+import Button from '@material-ui/core/Button';
 
-
-const axios = require('axios').default;
 
 export default function BookingForm() {
   const [clientInputs, changeInputs] = useState({
@@ -16,30 +15,31 @@ export default function BookingForm() {
   })
 
   // handles service and date information
-  const { bookingInput, changeDate, changeService, bookSlot } = useAppointmentData();
-  console.log(bookingInput)
+  const { bookingInput, 
+          changeDate, 
+          changeService, 
+          bookSlot, 
+          bookAppointment } = useAppointmentData();
 
   // sends data to the backend to book appointment
   function send(e) {
     e.preventDefault();
-
-    axios.post('/addData', clientInputs)
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+    const formattedData = {
+      clientInputs,
+      bookingInput
+    }
+    bookAppointment(formattedData);
   }
 
   return (
     <div>
-      <ClientInfo clientInputs={clientInputs} changeInputs={changeInputs} send={send}/>
+      <ClientInfo clientInputs={clientInputs} changeInputs={changeInputs}/>
       <BookingDetails 
         bookingInput={bookingInput} 
         changeDate={changeDate} 
         changeService={changeService}
         bookSlot={bookSlot} />
+      <Button onClick={send} variant="contained">Submit</Button>
     </div>
   )
 }

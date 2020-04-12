@@ -59,6 +59,19 @@ export default function useAppointmentData() {
             });
   }
 
+  function bookAppointment(data) {
+    const email = data.clientInputs.email;
+    const service = data.bookingInput.serviceInfo.id;
+    console.log(data)
+    // axios.post('/addData', clientInputs)
+    // .then(function (response) {
+    //   console.log(response);
+    // })
+    // .catch(function (error) {
+    //   console.log(error);
+    // });
+  }
 
-  return { bookingInput, changeDate, changeService, bookSlot }
+
+  return { bookingInput, changeDate, changeService, bookSlot, bookAppointment }
 }
