@@ -25,7 +25,7 @@ app.post('/addAppointment', (req, res) => {
       '${client.email}', 
       '${client.phone}', 
       ${client.text})
-    ON CONFLICT (email) DO NOTHING;`
+    ON CONFLICT ("phone") DO NOTHING;`
   )
   .then(res => {
     console.log(res);
