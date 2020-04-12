@@ -15,16 +15,17 @@ const pool = new Pool({
 app.use(bodyParser.json());
 
 // Books an appointment and adds information to the database
-app.post('/addData', (req, res) => {
-  const data = req.body;
+app.post('/addAppointment', (req, res) => {
+  const client = req.body.clientInputs;
   pool.query(`
     INSERT INTO clients ("first_name", "last_name", "email", "phone", "text")
     VALUES 
-      ('${data.first_name}',
-      ' ${data.last_name}', 
-      '${data.email}', 
-      '${data.phone}', 
-      ${data.text});`
+      ('${client.first_name}',
+      ' ${client.last_name}', 
+      '${client.email}', 
+      '${client.phone}', 
+      ${client.text})
+    ON CONFLICT (email) DO NOTHING;`
   )
   .then(res => {
     console.log(res);
