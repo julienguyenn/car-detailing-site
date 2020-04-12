@@ -3,6 +3,7 @@ import ClientInfo from './ClientInfo';
 import BookingDetails from './BookingDetails';
 import useAppointmentData from '../hooks/useAppointmentData';
 import Button from '@material-ui/core/Button';
+import { format, getYear } from 'date-fns';
 
 
 export default function BookingForm() {
@@ -26,7 +27,11 @@ export default function BookingForm() {
     e.preventDefault();
     const formattedData = {
       clientInputs,
-      bookingInput
+      serviceId: bookingInput.serviceInfo.id,
+      startTime: bookingInput.startTime,
+      endTime: bookingInput.endTime,
+      date: format(bookingInput.date, 'MM/dd/yyyy'),
+      year: getYear(bookingInput.date)
     }
     bookAppointment(formattedData);
   }

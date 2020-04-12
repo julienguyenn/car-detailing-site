@@ -17,9 +17,7 @@ app.use(bodyParser.json());
 // Books an appointment and adds information to the database
 app.post('/addAppointment', (req, res) => {
   const client = req.body.clientInputs;
-  const email = client.phone;
-  const appointment = req.body.bookingInput;
-  console.log(appointment)
+  const phone = client.phone;
   pool.query(`
     INSERT INTO clients ("first_name", "last_name", "email", "phone", "text")
     VALUES 
@@ -28,13 +26,19 @@ app.post('/addAppointment', (req, res) => {
       '${client.email}', 
       '${client.phone}', 
       ${client.text})
-    ON CONFLICT ("phone") DO NOTHING;`
+    ON CONFLICT ("phone") DO NOTHING;
+    
+    INSERT INTO appointments ("client_id", "service_id", "start_time", "end_time", "date", "year")
+       VALUES
+        ((SELECT id FROM clients WHERE phone = "${phone}"),
+        ${req.body.serviceId},
+        ${req.body.startTime},
+        ${req.body.endTime},
+        ${req.body.date},
+        ${req.body.year})`
   )
   .then(res => {
-    console.log(email)
-    // pool.query(`
-    // SELECT id FROM clients
-    // WHERE `)
+    console.log(res);
   })
   .catch(err => console.log('query error', err.stack))
 
