@@ -58,6 +58,7 @@ app.post('/addAppointment', (req, res) => {
 
 })
 
+// add's the schedule
 app.post('/addSchedule', (req, res) => {
   const schedule = req.body.dates;
 
@@ -86,6 +87,8 @@ app.post('/addSchedule', (req, res) => {
   }
 });
 
+
+// gets all the timeslots for the day
 app.get('/getTimes/:month/:day/:year', function (req, res) {
   const date = `${req.params.month}/${req.params.day}/${req.params.year}`;
   pool.query(`
@@ -103,6 +106,7 @@ app.get('/getTimes/:month/:day/:year', function (req, res) {
     .catch(err => console.log(err.stack))
 })
 
+// gets all the services 
 app.get('/getServices', function (req, res) {
   pool.query(`
     SELECT * FROM services`)
@@ -112,6 +116,7 @@ app.get('/getServices', function (req, res) {
     .catch(err => console.log(err.stack))
 })
 
+// gets information on the service based on its id
 app.get(`/getService/:id`, function (req, res) {
   const service = req.params.id;
   console.log(service)
