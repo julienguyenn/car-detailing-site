@@ -1,5 +1,24 @@
 #day-time-box {
   display: flex;
+  width: 600px;
+  align-items: center;
+}
+
+#timeslots {
+  display: flex;
+  flex-direction: column;
+}
+
+#timeslots button {
+  width: 300px;
+  height: 25px;
+  margin-top: 5px;
+}
+
+#outer-timebox{
+  display: flex;
+  flex-direction: column;
+  margin: -10px 0 0 10px;
 }
 
 .bookingPage {
@@ -63,6 +82,17 @@ input#standard-basic {
 #demo-simple-select {
   font-size: 20px;
 }
+
+/* calendar */
+.MuiPickersDatePickerRoot-toolbar {
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.MuiToolbar-root.MuiToolbar-regular.MuiPickersToolbar-toolbar {
+  display: none;
+}
+
 
 
 

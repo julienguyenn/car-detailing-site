@@ -17,8 +17,7 @@ export default function TimeSlots({ slots, bookSlot }) {
 
   return (
     <div id="outer-timebox">
-      <h5>Available TimeSlots</h5>
-      <div>
+      <div id="timeslots">
         {example}
       </div>
     </div>
