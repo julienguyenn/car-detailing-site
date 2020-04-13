@@ -4,6 +4,7 @@ import BookingDetails from './BookingDetails';
 import useAppointmentData from '../hooks/useAppointmentData';
 import Button from '@material-ui/core/Button';
 import { format, getYear } from 'date-fns';
+import numToTime from '../helpers/numToTime';
 
 
 export default function BookingForm() {
@@ -39,7 +40,16 @@ export default function BookingForm() {
   return (
     <div>
       <h2>Book an appointment</h2>
-      <h1>Booking {bookingInput.serviceInfo.service_name} for {clientInputs.first_name} on {format(bookingInput.date, 'MM/dd/yyyy')} at {bookingInput.startTime} to {bookingInput.endTime}</h1>
+      <h1>{clientInputs.first_name && 
+            <span> Booking { bookingInput.serviceInfo.service_name } for { clientInputs.first_name } {clientInputs.last_name }
+            { bookingInput.serviceInfo.service_name && 
+              <span> on {format(bookingInput.date, 'MM/dd/yyyy')} 
+              {bookingInput.startTime && 
+                <span> at {numToTime(bookingInput.startTime)} to {numToTime(bookingInput.endTime)}.</span>}
+              </span>}
+            </span>
+          }
+      </h1>
       <ClientInfo clientInputs={clientInputs} changeInputs={changeInputs}/>
       <BookingDetails 
         bookingInput={bookingInput} 
