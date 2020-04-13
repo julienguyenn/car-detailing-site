@@ -47,7 +47,8 @@ app.post('/addAppointment', (req, res) => {
     
     UPDATE availability 
     SET booked = TRUE
-    WHERE timeslot >= ${Number(req.body.startTime)} AND timeslot < ${Number(req.body.endTime)};
+    WHERE timeslot >= ${Number(req.body.startTime)} AND timeslot < ${Number(req.body.endTime)}
+          AND date = '${req.body.date}';
 
     DELETE from appointments WHERE year < ${req.body.year};`
   )
