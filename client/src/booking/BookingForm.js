@@ -35,9 +35,11 @@ export default function BookingForm() {
     }
     bookAppointment(formattedData);
   }
-
+  console.log(bookingInput)
   return (
     <div>
+      <h2>Book an appointment</h2>
+      <h1>Booking {bookingInput.serviceInfo.service_name} for {clientInputs.first_name} on {format(bookingInput.date, 'MM/dd/yyyy')} at {bookingInput.startTime} to {bookingInput.endTime}</h1>
       <ClientInfo clientInputs={clientInputs} changeInputs={changeInputs}/>
       <BookingDetails 
         bookingInput={bookingInput} 

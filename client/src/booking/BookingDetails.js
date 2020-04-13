@@ -40,18 +40,23 @@ export default function BookingDetails({ bookingInput, changeDate, changeService
 
   return (
     <div>
-      <h1>Available Services</h1>
-      <FormControl className={classes.formControl}>
-      <InputLabel id="demo-simple-select-label">Services</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          value={serviceID}
-          onChange={handleServiceChange}
-        >
-          {allServices}
-        </Select>
-      </FormControl>
+      <h3>Choose a service</h3>
+      <div>
+        <FormControl className={classes.formControl}>
+        <InputLabel id="demo-simple-select-label">Services</InputLabel>
+          <Select
+            labelId="demo-simple-select-label"
+            id="demo-simple-select"
+            value={serviceID}
+            onChange={handleServiceChange}
+          >
+            {allServices}
+          </Select>
+        </FormControl>
+        <p>
+          {bookingInput.serviceInfo.description}
+        </p>
+      </div>
       { serviceID !== '' && (
         <div>
           <h1>Booking Information</h1>
