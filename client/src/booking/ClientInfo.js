@@ -20,14 +20,14 @@ export default function ClientInfo({clientInputs, changeInputs}) {
 
 
   return (
-    <form noValidate autoComplete="off">
+    <form noValidate autoComplete="off" className="formInput">
     <TextField required name='first_name' id="standard-basic" label="First Name" onChange={changeData}/>
     <TextField required name='last_name' id="standard-basic" label="Last Name" onChange={changeData}/>
     <TextField required name='email' id="standard-basic" label="Email" onChange={changeData}/>
     <TextField required name='phone' id="standard-basic" label="Phone" onChange={changeData}/>
     <FormControlLabel
       control={<Checkbox checked={clientInputs.text} name="text" onChange={changeData} label="prefer texting"/>}
-      label="prefer texting"
+      label="prefer text messages over calls"
     />
   </form>
   )

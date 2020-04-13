@@ -1,0 +1,70 @@
+#day-time-box {
+  display: flex;
+}
+
+.bookingPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formInput {
+  display: flex;
+  width: 600px;
+  flex-direction: column;
+}
+
+.wide {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.horizontalInput {
+  width: 600px;
+}
+.serviceDescription {
+  font-size: 1.2em;
+}
+
+/* height of input */
+.MuiFormControl-root.MuiTextField-root {
+  height: 68px;
+}
+
+/* input boxes */
+input#standard-basic {
+  font-size: 20px;
+  padding-left: 8px;
+}
+
+/* materialUI underline */
+.MuiInputBase-root.MuiInput-root.MuiInput-underline:after {
+  border-bottom: 3px solid #6ebde0;
+}
+
+/* materialUI underline */
+
+.MuiInputBase-root.MuiInput-root.MuiInput-underline:hover {
+  border-bottom: 0px solid #696969;
+}
+
+/* materialUI input label */
+.MuiFormLabel-root.MuiInputLabel-root.Mui-focused {
+  color: #6ebde0;
+}
+
+/* service selector */
+.MuiFormControl-root.makeStyles-formControl-125 {
+  width: 100%;
+}
+
+/* service selector */
+#demo-simple-select {
+  font-size: 20px;
+}
+
+
+
+
+

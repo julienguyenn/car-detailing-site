@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import TimeSlots from "./TimeSlots"
-import './styling/BookingDetails.css'
 import Calendar from './Calendar';
 import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -39,11 +38,11 @@ export default function BookingDetails({ bookingInput, changeDate, changeService
   })
 
   return (
-    <div>
+    <div className="formInput wide">
       <h3>Choose a service</h3>
-      <div>
+      <div className="horizontalInput">
         <FormControl className={classes.formControl}>
-        <InputLabel id="demo-simple-select-label">Services</InputLabel>
+        <InputLabel id="demo-simple-select-label">Services *</InputLabel>
           <Select
             labelId="demo-simple-select-label"
             id="demo-simple-select"
@@ -53,13 +52,13 @@ export default function BookingDetails({ bookingInput, changeDate, changeService
             {allServices}
           </Select>
         </FormControl>
-        <p>
+        <p className="serviceDescription">
           {bookingInput.serviceInfo.description}
         </p>
       </div>
       { serviceID !== '' && (
         <div>
-          <h1>Booking Information</h1>
+          <h3>Choose a date and time</h3>
           <div id="day-time-box">
             <Calendar changeDate={changeDate}/>
             <TimeSlots slots={bookingInput.timeSlots} bookSlot={bookSlot} />
