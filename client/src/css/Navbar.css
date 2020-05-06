@@ -1,9 +1,14 @@
 #navbar {
   background: transparent;
+  display: flex;
+  justify-content: space-between;
+  height: 70px;
+  padding: 10px 10px;
 }
 
 .company-name {
   margin: 0 0 0 0;
+  font-size: 40px;
   font-family: "Oswald";
 }
 /*# sourceMappingURL=Navbar.css.map */
