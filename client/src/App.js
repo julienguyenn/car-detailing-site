@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import {
   BrowserRouter as Router,
   Switch,
@@ -8,6 +7,8 @@ import {
 } from "react-router-dom";
 import BookingForm from './booking/BookingForm';
 import AddSchedule from './admin/AddSchedule'
+import Homepage from './homePage/Homepage';
+import Navbar from './Navbar'
 
 
 function App() {
@@ -15,9 +16,12 @@ function App() {
   return (
     <Router>
     <div className="App">
-      <Link to="/">Home</Link>
+      <Navbar />
+
+      {/* commented out for now */}
+      {/* <Link to="/">Home</Link>
       <Link to="/book">Book</Link>
-      <Link to='/admin'>Admin</Link>
+      <Link to='/admin'>Admin</Link> */}
 
       <Switch>
         <Route path="/book">
@@ -28,7 +32,7 @@ function App() {
           <AddSchedule />
         </Route>
         <Route path="/">
-          <h1>HOMEPAGE</h1>
+          <Homepage />
         </Route>
       </Switch>
     
