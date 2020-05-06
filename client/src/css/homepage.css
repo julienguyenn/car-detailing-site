@@ -1,7 +1,23 @@
 .large-box {
-  height: 600px;
+  height: 700px;
   background-image: url("../images/banner.jpg");
   background-repeat: no-repeat;
   background-position: center center;
+}
+
+.large-box2 {
+  padding: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.large-box2 .visual-button {
+  outline: 1px solid black;
+  height: 600px;
+  width: 550px;
 }
 /*# sourceMappingURL=homepage.css.map */

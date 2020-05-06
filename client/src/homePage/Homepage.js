@@ -7,7 +7,7 @@ export default function Homepage() {
     <div>
       <div className="large-box" id="banner">
       </div>
-      <div classNam="large-box">
+      <div className="large-box2">
         <button className="visual-button">Services</button>
         <button className="visual-button">Contact Info</button>
       </div>
