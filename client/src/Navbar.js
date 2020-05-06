@@ -1,5 +1,6 @@
 import React from 'react'
-import './navBar.sass'
+import './Navbar.sass'
+
 export default function Navbar() {
   return (
     <nav id="navbar">
