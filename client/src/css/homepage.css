@@ -1,4 +1,7 @@
 .large-box {
   height: 600px;
+  background-image: url("../images/banner.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 /*# sourceMappingURL=homepage.css.map */
