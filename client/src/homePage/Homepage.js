@@ -1,11 +1,11 @@
 import React from 'react'
+import '../css/homepage.css'
 
 export default function Homepage() {
 
   return (
     <div>
       <div className="large-box" id="banner">
-        This will be the banner.
       </div>
       <div classNam="large-box">
         <button className="visual-button">Services</button>

@@ -2,8 +2,34 @@
 
 #navbar
   background: transparent
+  position: fixed
+  width: 100%
+  top: 0
   margin: 0 0 0 0
+
+.contents
+   display: flex
+   justify-content: space-between
+   padding: 10px
+  
 
 .company-name 
   margin: 0 0 0 0
   font-family: $primary-font
+  font-size: 40px
+
+#nav-buttons
+  .nav-but
+    font-family: $primary-font
+    margin: 0 10px 0 0
+    font-size: 20px
+
+  margin: 5px 0 0 0
+
+@media ( max-width: 480px )
+  .company-name
+    font-size: 30px
+
+  #nav-buttons
+    display: none
+  

@@ -1,14 +1,43 @@
 #navbar {
   background: transparent;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  margin: 0 0 0 0;
+}
+
+.contents {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  height: 70px;
-  padding: 10px 10px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 10px;
 }
 
 .company-name {
   margin: 0 0 0 0;
+  font-family: "Oswald", sans-serif;
   font-size: 40px;
-  font-family: "Oswald";
+}
+
+#nav-buttons {
+  margin: 5px 0 0 0;
+}
+
+#nav-buttons .nav-but {
+  font-family: "Oswald", sans-serif;
+  margin: 0 10px 0 0;
+  font-size: 20px;
+}
+
+@media (max-width: 480px) {
+  .company-name {
+    font-size: 30px;
+  }
+  #nav-buttons {
+    display: none;
+  }
 }
 /*# sourceMappingURL=Navbar.css.map */
