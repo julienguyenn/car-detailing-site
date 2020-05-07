@@ -1,3 +1,5 @@
+@import "variables"
+
 .large-box 
   height: 920px
   background-image: url('../images/banner.jpg')
@@ -6,10 +8,27 @@
 
 .large-box2 
   .visual-button
-    outline: 1px solid black
-    height: 700px
-    width: 550px
+    height: 860px
+    width: 650px
+    background-repeat: no-repeat
+    background-position: center center
+    background-size: cover
+    opacity: 85%
+    font-family: $primary-font
+    color: black
+    font-size: 40px
+    font-weight: 600
   
-  padding: 30px
+  .visual-button:hover
+    opacity: 100%
+
+  .services
+    background-image: url('../images/services.jpeg')
+  
+  .contact
+    background-image: url('../images/contactInfo.jpg')
+    
+  
   display: flex
-  justify-content: space-evenly
+  justify-content: space-around
+  margin: 160px 0 35px 0

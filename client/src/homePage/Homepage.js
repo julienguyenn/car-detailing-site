@@ -8,8 +8,8 @@ export default function Homepage() {
       <div className="large-box" id="banner">
       </div>
       <div className="large-box2">
-        <button className="visual-button">Services</button>
-        <button className="visual-button">Contact Info</button>
+        <button className="visual-button services">SERVICES</button>
+        <button className="visual-button contact">CONTACT INFO</button>
       </div>
     </div>
   )
