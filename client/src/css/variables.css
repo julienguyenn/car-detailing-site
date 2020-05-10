@@ -8,4 +8,10 @@
   height: 70px;
   background-color: #ffffff00;
 }
+
+.generic-button:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0 0 11px 0 #333333;
+          box-shadow: 0 0 11px 0 #333333;
+}
 /*# sourceMappingURL=variables.css.map */
