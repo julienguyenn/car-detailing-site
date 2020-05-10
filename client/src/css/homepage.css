@@ -15,6 +15,14 @@
           box-shadow: 0 0 11px 0 #333333;
 }
 
+.subtitle {
+  font-family: "Jost", sans-serif;
+  color: #ffffff;
+  font-size: 6em;
+  font-weight: 600;
+  margin: 0 0 0 0;
+}
+
 .large-box {
   height: 920px;
   background-image: url("../images/banner.jpg");
@@ -33,34 +41,31 @@
   padding: 0 0 0 8%;
 }
 
-.large-box .slogan {
-  font-family: "Jost", sans-serif;
-  color: #ffffff;
-  font-size: 90px;
-  font-weight: 600;
-  margin: 0 0 0 0;
-}
-
 .large-box2 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  margin: 160px 0 35px 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.large-box2 .description-box {
+  height: 300px;
 }
 
 .large-box2 .visual-button {
-  height: 860px;
-  width: 650px;
+  height: 300px;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  opacity: 85%;
+  opacity: 90%;
   font-family: "Jost", sans-serif;
-  color: black;
+  color: #ffffff;
   font-size: 40px;
   font-weight: 600;
+  border: none;
 }
 
 .large-box2 .visual-button:hover {
