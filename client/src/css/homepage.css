@@ -1,3 +1,13 @@
+.generic-button {
+  color: #ffffff;
+  font-family: "Jost", sans-serif;
+  font-size: 20px;
+  border: 1px solid #ffffff;
+  width: 200px;
+  height: 70px;
+  background-color: #ffffff00;
+}
+
 .large-box {
   height: 920px;
   background-image: url("../images/banner.jpg");
@@ -6,9 +16,13 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   padding: 0 0 0 8%;
 }
 
@@ -16,10 +30,6 @@
   font-family: "Jost", sans-serif;
   color: #ffffff;
   font-size: 90px;
-}
-
-.large-box .small-text {
-  font-size: 20px;
 }
 
 .large-box2 {

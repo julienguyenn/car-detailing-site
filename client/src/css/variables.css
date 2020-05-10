@@ -1,1 +1,10 @@
-/* No CSS *//*# sourceMappingURL=variables.css.map */
+.generic-button {
+  color: #ffffff;
+  font-family: "Jost", sans-serif;
+  font-size: 20px;
+  border: 1px solid #ffffff;
+  width: 200px;
+  height: 70px;
+  background-color: #ffffff00;
+}
+/*# sourceMappingURL=variables.css.map */
