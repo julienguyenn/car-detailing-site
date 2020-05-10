@@ -19,8 +19,8 @@
 
 .company-name {
   margin: 0 0 0 0;
-  font-family: "Oswald", sans-serif;
-  font-size: 40px;
+  font-family: "Jost", sans-serif;
+  font-size: 30px;
   color: #ffffff;
 }
 
@@ -29,8 +29,9 @@
 }
 
 #nav-buttons .nav-but {
-  font-family: "Oswald", sans-serif;
-  margin: 0 10px 0 0;
+  font-family: "Jost", sans-serif;
+  color: #ffffff;
+  margin: 0 40px 0 0;
   font-size: 20px;
 }
 

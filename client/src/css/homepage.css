@@ -3,6 +3,23 @@
   background-image: url("../images/banner.jpg");
   background-repeat: no-repeat;
   background-position: center center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 0 0 8%;
+}
+
+.large-box .slogan {
+  font-family: "Jost", sans-serif;
+  color: #ffffff;
+  font-size: 90px;
+}
+
+.large-box .small-text {
+  font-size: 20px;
 }
 
 .large-box2 {
@@ -21,7 +38,7 @@
   background-position: center center;
   background-size: cover;
   opacity: 85%;
-  font-family: "Oswald", sans-serif;
+  font-family: "Jost", sans-serif;
   color: black;
   font-size: 40px;
   font-weight: 600;
