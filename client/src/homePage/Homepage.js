@@ -11,7 +11,8 @@ export default function Homepage() {
       </div>
       <div className="large-box2">
         <div className="description-box">
-          <p className="subtitle">What can we do to help</p>
+          <p className="subtitle category">What can we do to help?</p>
+          <p className="description">Cllctve will try our best to make sure we can help maintain the quality of your car.</p>
         </div>
         <button className="visual-button services">SERVICES</button>
         <div className="description-box"></div>

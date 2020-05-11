@@ -52,7 +52,22 @@
 }
 
 .large-box2 .description-box {
-  height: 300px;
+  height: 450px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.large-box2 .description-box .category {
+  font-size: 70px;
+  margin: 100px;
+}
+
+.large-box2 .description-box .description {
+  color: #ffffff;
+  font-family: "Jost", sans-serif;
+  font-size: 25px;
+  font-weight: 100;
 }
 
 .large-box2 .visual-button {
