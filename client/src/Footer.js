@@ -6,8 +6,9 @@ export default function Footer() {
   return (
     <div id="footer">
       <a>
-        <img alt="insta" src="../public/instagram.png"></img>
+        <img alt="insta" src={require("./images/instagram.png")}></img>
       </a>
+      <p>Check out images on our instagram!</p>
     </div>
   )
 }

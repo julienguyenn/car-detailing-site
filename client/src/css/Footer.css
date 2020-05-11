@@ -1,4 +1,49 @@
+.generic-button {
+  color: #ffffff;
+  font-family: "Jost", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  border: 2px solid #ffffff;
+  width: 200px;
+  height: 70px;
+  background-color: #ffffff00;
+}
+
+.generic-button:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0 0 11px 0 #333333;
+          box-shadow: 0 0 11px 0 #333333;
+}
+
+.subtitle {
+  font-family: "Jost", sans-serif;
+  color: #ffffff;
+  font-size: 6em;
+  font-weight: 600;
+  margin: 0 0 0 0;
+}
+
 #footer {
   height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Jost", sans-serif;
+  color: #ffffff;
+  font-size: 18px;
+}
+
+img {
+  width: 70px;
+  margin: 0 30px 0 50px;
+  opacity: 80%;
+}
+
+img:hover {
+  cursor: pointer;
+  opacity: 100%;
 }
 /*# sourceMappingURL=Footer.css.map */

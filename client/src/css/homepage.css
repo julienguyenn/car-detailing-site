@@ -80,7 +80,7 @@
 }
 
 .large-box2 .visual-button {
-  height: 400px;
+  height: 500px;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -89,10 +89,12 @@
   font-size: 40px;
   font-weight: 600;
   border: none;
+  opacity: 90%;
 }
 
 .large-box2 .visual-button:hover {
   cursor: pointer;
+  opacity: 100%;
 }
 
 .large-box2 .services {
