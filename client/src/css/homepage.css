@@ -52,22 +52,31 @@
 }
 
 .large-box2 .description-box {
-  height: 450px;
+  height: 500px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 100px;
 }
 
 .large-box2 .description-box .category {
   font-size: 70px;
-  margin: 100px;
+  padding: 40px;
 }
 
 .large-box2 .description-box .description {
   color: #ffffff;
   font-family: "Jost", sans-serif;
-  font-size: 25px;
+  font-size: 23px;
   font-weight: 100;
+  padding: 40px;
+}
+
+.large-box2 .description-box .description .name {
+  font-weight: 800;
 }
 
 .large-box2 .visual-button {
@@ -85,13 +94,34 @@
 
 .large-box2 .visual-button:hover {
   opacity: 100%;
+  cursor: pointer;
 }
 
 .large-box2 .services {
   background-image: url("../images/services.jpeg");
 }
 
+.large-box2 .services span {
+  font-size: 50px;
+  padding: 10px;
+}
+
+.large-box2 .services span:hover {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
 .large-box2 .contact {
   background-image: url("../images/contactInfo.jpg");
+}
+
+.large-box2 .contact span {
+  font-size: 50px;
+  padding: 10px;
+}
+
+.large-box2 .contact span:hover {
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 /*# sourceMappingURL=homepage.css.map */

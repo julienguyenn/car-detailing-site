@@ -14,18 +14,25 @@
 
 .large-box2 
   .description-box
-    height: 450px
+    height: 500px
     display: flex
+    align-items: center
+    padding: 0 100px
 
     .category
       font-size: 70px
-      margin: 100px
+      padding: 40px
 
     .description
       color: $primary-font-color
       font-family: $primary-font
-      font-size: 25px
+      font-size: 23px
       font-weight: 100
+      padding: 40px
+
+      .name
+        font-weight: 800
+
 
   .visual-button
     height: 300px
@@ -41,12 +48,25 @@
   
   .visual-button:hover
     opacity: 100%
+    cursor: pointer
 
   .services
     background-image: url('../images/services.jpeg')
   
+    span
+      font-size: 50px
+      padding: 10px
+      &:hover
+        box-shadow: none
+  
   .contact
     background-image: url('../images/contactInfo.jpg')
+
+    span
+      font-size: 50px
+      padding: 10px
+      &:hover
+        box-shadow: none
     
   
   display: flex
