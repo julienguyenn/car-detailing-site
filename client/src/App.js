@@ -9,6 +9,7 @@ import BookingForm from './booking/BookingForm';
 import AddSchedule from './admin/AddSchedule'
 import Homepage from './homePage/Homepage';
 import Navbar from './Navbar'
+import Footer from './Footer'
 import './css/App.css'
 
 
@@ -37,6 +38,7 @@ function App() {
         </Route>
       </Switch>
     
+      <Footer />
     </div>
     </Router>
 

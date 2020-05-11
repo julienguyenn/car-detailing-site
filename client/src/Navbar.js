@@ -1,6 +1,5 @@
 import React from 'react'
 import './css/Navbar.css'
-import {MDCTopAppBar} from '@material/top-app-bar'
 
 export default function Navbar() {
   return (
