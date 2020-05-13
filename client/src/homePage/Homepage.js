@@ -14,9 +14,8 @@ export default function Homepage() {
           <p className="subtitle category">What can we do to help?</p>
           <p className="description">At <span className="name">CLLCTVE</span> we promise a high quality process and result to make sure your car looks its best, take a look at what we can offer for your vehicle.</p>
         </div>
-        <a className="visual-button">
-          <img id="services" src={require("../images/services.jpeg")}></img>
-          Our Services</a>
+        <button className="visual-button services">
+          <span className="text">Our Services</span></button>
         <div className="description-box">
           <p className="description">Whether its questions about our practices or to book an appointment, don't be shy to contact us.</p>
           <p className="subtitle category">Have questions? Get in touch.</p>

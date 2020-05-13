@@ -7,6 +7,7 @@
   width: 200px;
   height: 70px;
   background-color: #ffffff00;
+  border-radius: 50px;
 }
 
 .generic-button:hover {
@@ -52,7 +53,7 @@
 }
 
 .large-box2 .description-box {
-  height: 500px;
+  height: 550px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -80,7 +81,7 @@
 }
 
 .large-box2 .visual-button {
-  height: 500px;
+  height: 400px;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -89,32 +90,29 @@
   font-size: 40px;
   font-weight: 600;
   border: none;
-  overflow: hidden;
 }
 
 .large-box2 .visual-button:hover {
   cursor: pointer;
 }
 
-.large-box2 .visual-button:hover > .generic-button {
-  -webkit-box-shadow: 0 0 11px 0 black;
-          box-shadow: 0 0 11px 0 black;
+.large-box2 .visual-button:hover > .text {
+  color: black;
 }
 
-.large-box2 #services {
-  width: 100%;
-  margin: -80px 0 0 0;
-  opacity: 100%;
+.large-box2 .services {
+  background-image: url("../images/services.jpeg");
+  -webkit-transition: background-image 3s;
+  transition: background-image 3s;
 }
 
-.large-box2 #services span {
+.large-box2 .services:hover {
+  background-image: url("../images/contactInfo.jpg");
+}
+
+.large-box2 .services span {
   font-size: 50px;
   padding: 10px;
-}
-
-.large-box2 #services span:hover {
-  -webkit-box-shadow: none;
-          box-shadow: none;
 }
 
 .large-box2 .contact {
@@ -124,10 +122,5 @@
 .large-box2 .contact span {
   font-size: 50px;
   padding: 10px;
-}
-
-.large-box2 .contact span:hover {
-  -webkit-box-shadow: none;
-          box-shadow: none;
 }
 /*# sourceMappingURL=homepage.css.map */
