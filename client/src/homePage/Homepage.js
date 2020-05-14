@@ -16,10 +16,6 @@ export default function Homepage() {
         </div>
         <button className="visual-button services">
           <span className="text">Our Services</span></button>
-        <div className="description-box">
-          <p className="description">Whether its questions about our practices or to book an appointment, don't be shy to contact us.</p>
-          <p className="subtitle category">Have questions? Get in touch.</p>
-        </div>
         <button className="visual-button contact"><span className="generic-button">Contact Info</span></button>
       </div>
     </div>
