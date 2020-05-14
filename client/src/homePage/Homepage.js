@@ -17,6 +17,7 @@ export default function Homepage() {
             <a className="visual-button">
               <span className="button-text">Our Services</span>
             </a>
+            <div></div>
             <a className="visual-button"><span className="button-text">Contact Info</span>
             </a>
           </div>

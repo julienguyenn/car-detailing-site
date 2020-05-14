@@ -30,32 +30,35 @@
       font-weight: 100
       padding: 10px
       width: 628px;
+      margin: 0 0 60px
 
       .name
         font-weight: 800
     
     .button-links
       display: grid
-      grid-template-columns: 1fr 1fr
-      width: 850px
+      grid-template-columns: 1fr 20px 1fr
 
       .visual-button
-        height: 400px
-        background-repeat: no-repeat
-        background-position: center center
-        background-size: cover
+        position: relative
+        height: 550px
+        width: 600px
         font-family: $primary-font
         color: $primary-font-color
         font-size: 40px
         font-weight: 600
-        border: none
+        border: 1px solid
+
+      .button-text
+        position: absolute
+        top: 45%
+        margin: 0 180px
+
         
       .visual-button:hover
         cursor: pointer
         
-        > .text
-          color: black
-
+        > .button-text
     
   
   display: flex
