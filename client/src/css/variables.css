@@ -8,6 +8,10 @@
   height: 70px;
   background-color: #ffffff00;
   border-radius: 50px;
+  -webkit-transition: -webkit-box-shadow 0.5s;
+  transition: -webkit-box-shadow 0.5s;
+  transition: box-shadow 0.5s;
+  transition: box-shadow 0.5s, -webkit-box-shadow 0.5s;
 }
 
 .generic-button:hover {
