@@ -19,7 +19,9 @@ export default function Homepage() {
               <span className="button-text">Our Services</span>
             </a>
             <div></div>
-            <a className="visual-button"><span className="button-text">Contact Info</span>
+            <a className="visual-button">
+              <img src={require("../images/contactInfo.jpg")} />
+              <span className="button-text">Contact Info</span>
             </a>
           </div>
         </div>

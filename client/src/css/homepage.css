@@ -62,7 +62,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 200px 100px 0;
+  padding: 150px 100px 0;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -80,7 +80,7 @@
   font-weight: 100;
   padding: 10px;
   width: 628px;
-  margin: 0 0 60px;
+  margin: 0 0 90px;
 }
 
 .large-box2 .description-box .description .name {
@@ -100,7 +100,7 @@
   width: 600px;
   font-family: "Jost", sans-serif;
   color: #ffffff;
-  font-size: 40px;
+  font-size: 50px;
   font-weight: 600;
   overflow: hidden;
 }
@@ -109,7 +109,10 @@
   width: 200%;
   margin: 0 0 0 0;
   position: absolute;
+  opacity: 90%;
   left: -250px;
+  -webkit-transition: 0.25s cubic-bezier(0.65, 0.54, 0, 0.9);
+  transition: 0.25s cubic-bezier(0.65, 0.54, 0, 0.9);
 }
 
 .large-box2 .description-box .button-links .visual-button img:hover {
@@ -119,7 +122,7 @@
 .large-box2 .description-box .button-links .button-text {
   position: absolute;
   top: 45%;
-  margin: 0 180px;
+  margin: 0 151px;
 }
 
 .large-box2 .description-box .button-links .visual-button:hover {
