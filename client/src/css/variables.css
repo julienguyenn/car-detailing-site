@@ -23,4 +23,11 @@
   font-weight: 600;
   margin: 0 0 0 0;
 }
+
+.company-name {
+  margin: 0 0 0 0;
+  font-family: "Jost", sans-serif;
+  font-size: 30px;
+  color: #ffffff;
+}
 /*# sourceMappingURL=variables.css.map */

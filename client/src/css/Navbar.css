@@ -24,6 +24,13 @@
   margin: 0 0 0 0;
 }
 
+.company-name {
+  margin: 0 0 0 0;
+  font-family: "Jost", sans-serif;
+  font-size: 30px;
+  color: #ffffff;
+}
+
 #navbar {
   background: transparent;
   position: fixed;
@@ -41,13 +48,6 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   padding: 35px 40px 0 40px;
-}
-
-.company-name {
-  margin: 0 0 0 0;
-  font-family: "Jost", sans-serif;
-  font-size: 30px;
-  color: #ffffff;
 }
 
 #nav-buttons {

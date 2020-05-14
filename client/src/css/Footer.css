@@ -24,8 +24,15 @@
   margin: 0 0 0 0;
 }
 
+.company-name {
+  margin: 0 0 0 0;
+  font-family: "Jost", sans-serif;
+  font-size: 30px;
+  color: #ffffff;
+}
+
 #footer {
-  height: 200px;
+  height: 400px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
