@@ -15,6 +15,7 @@ export default function Homepage() {
           <p className="description">At <span className="name">CLLCTVE</span> we promise a high quality process and result to make sure your car looks its best, take a look at what we can offer for your vehicle.</p>
           <div className="button-links">
             <a className="visual-button">
+              <img src={require("../images/services.jpeg")} />
               <span className="button-text">Our Services</span>
             </a>
             <div></div>
