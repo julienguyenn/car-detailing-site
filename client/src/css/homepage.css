@@ -86,7 +86,15 @@
   font-weight: 800;
 }
 
-.large-box2 .visual-button {
+.large-box2 .description-box .button-links {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  width: 850px;
+}
+
+.large-box2 .description-box .button-links .visual-button {
   height: 400px;
   background-repeat: no-repeat;
   background-position: center center;
@@ -98,11 +106,11 @@
   border: none;
 }
 
-.large-box2 .visual-button:hover {
+.large-box2 .description-box .button-links .visual-button:hover {
   cursor: pointer;
 }
 
-.large-box2 .visual-button:hover > .text {
+.large-box2 .description-box .button-links .visual-button:hover > .text {
   color: black;
 }
 /*# sourceMappingURL=homepage.css.map */
