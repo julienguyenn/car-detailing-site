@@ -9,16 +9,22 @@
   justify-content: center
   flex-direction: column
   padding: 0 0 0 8%
+  
 
 
   .subtitle
-  font-family: $primary-font
-  color: $primary-font-color
-  font-size: 1em
-  font-weight: 600
-  margin: 0 0 0 0
+    font-family: $primary-font
+    color: $primary-font-color
+    font-size: 6em
+    font-weight: 600
+    margin: 0
+  
   @media screen and (max-width: 767px) 
-    font-size: 0.6em
+    padding: 0 0 0 3%
+    
+    .subtitle
+      margin: 0
+      font-size: 4em
 
 
 
@@ -37,6 +43,10 @@
 
 
     .category
+      font-family: $primary-font
+      color: $primary-font-color
+      font-weight: 700
+      margin: 0
       font-size: 4em
       text-align: center
       @media screen and (max-width: 767px) 
@@ -50,13 +60,13 @@
       font-family: $primary-font
       font-size: 1.3em
       font-weight: 100
-      max-width: 650px
+      width: 650px
       margin: 15px 0 90px
-      min-width: 200px
       text-align: center
       @media screen and (max-width: 767px) 
         font-size: 1em
         margin-bottom: 32px
+        width: 370px
 
 
       .name
@@ -90,7 +100,7 @@
           width: 100%
         @media screen and (min-width: 767px) and (max-width: 1170px)
           height: 350px
-          font-size: 40px
+          font-size: 35px
           width: 100%;
       
 

@@ -31,6 +31,12 @@
   color: #ffffff;
 }
 
+@media (max-width: 767px) {
+  .company-name .company-name {
+    font-size: 20px;
+  }
+}
+
 .large-box {
   height: 920px;
   background-image: url("../images/banner.jpg");
@@ -47,16 +53,23 @@
       -ms-flex-direction: column;
           flex-direction: column;
   padding: 0 0 0 8%;
+}
+
+.large-box .subtitle {
   font-family: "Jost", sans-serif;
   color: #ffffff;
-  font-size: 1em;
+  font-size: 6em;
   font-weight: 600;
-  margin: 0 0 0 0;
+  margin: 0;
 }
 
 @media screen and (max-width: 767px) {
   .large-box {
-    font-size: 0.6em;
+    padding: 0 0 0 3%;
+  }
+  .large-box .subtitle {
+    margin: 0;
+    font-size: 4em;
   }
 }
 
@@ -94,6 +107,10 @@
 }
 
 .large-box2 .description-box .category {
+  font-family: "Jost", sans-serif;
+  color: #ffffff;
+  font-weight: 700;
+  margin: 0;
   font-size: 4em;
   text-align: center;
 }
@@ -115,9 +132,8 @@
   font-family: "Jost", sans-serif;
   font-size: 1.3em;
   font-weight: 100;
-  max-width: 650px;
+  width: 650px;
   margin: 15px 0 90px;
-  min-width: 200px;
   text-align: center;
 }
 
@@ -125,6 +141,7 @@
   .large-box2 .description-box .description {
     font-size: 1em;
     margin-bottom: 32px;
+    width: 370px;
   }
 }
 
@@ -178,7 +195,7 @@
 @media screen and (min-width: 767px) and (max-width: 1170px) {
   .large-box2 .description-box .button-links .visual-button {
     height: 350px;
-    font-size: 40px;
+    font-size: 35px;
     width: 100%;
   }
 }

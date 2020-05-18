@@ -24,19 +24,17 @@
   outline: none;
 }
 
-.subtitle {
-  font-family: "Jost", sans-serif;
-  color: #ffffff;
-  font-size: 6em;
-  font-weight: 600;
-  margin: 0 0 0 0;
-}
-
 .company-name {
   margin: 0 0 0 0;
   font-family: "Jost", sans-serif;
   font-size: 30px;
   color: #ffffff;
+}
+
+@media (max-width: 767px) {
+  .company-name {
+    font-size: 20px;
+  }
 }
 
 #footer {

@@ -24,19 +24,17 @@
   outline: none;
 }
 
-.subtitle {
-  font-family: "Jost", sans-serif;
-  color: #ffffff;
-  font-size: 6em;
-  font-weight: 600;
-  margin: 0 0 0 0;
-}
-
 .company-name {
   margin: 0 0 0 0;
   font-family: "Jost", sans-serif;
   font-size: 30px;
   color: #ffffff;
+}
+
+@media (max-width: 767px) {
+  .company-name {
+    font-size: 20px;
+  }
 }
 
 #navbar {
@@ -58,6 +56,12 @@
   padding: 35px 40px 0 40px;
 }
 
+@media screen and (max-width: 767px) {
+  .contents {
+    padding: 27px 0 0 19px;
+  }
+}
+
 #nav-buttons {
   margin: 5px 0 0 0;
 }
@@ -70,10 +74,7 @@
   font-weight: 600;
 }
 
-@media (max-width: 480px) {
-  .company-name {
-    font-size: 30px;
-  }
+@media (max-width: 767px) {
   #nav-buttons {
     display: none;
   }
