@@ -9,8 +9,6 @@
   justify-content: center
   flex-direction: column
   padding: 0 0 0 8%
-  @media screen and (max-width: 767px) 
-    height: 750px
 
 
   .subtitle
@@ -43,6 +41,9 @@
       text-align: center
       @media screen and (max-width: 767px) 
         font-size: 2em
+      @media screen and (min-width: 767px) and (max-width: 1170px)
+        font-size: 3em
+
 
     .description
       color: $primary-font-color
@@ -55,34 +56,64 @@
       text-align: center
       @media screen and (max-width: 767px) 
         font-size: 1em
+        margin-bottom: 32px
 
 
       .name
         font-weight: 800
     
     .button-links
-      // display: grid
+      display: grid
       grid-template-columns: 1fr 25px 1fr
-      display: none
+      width: 80%
+      @media screen and (max-width: 767px)
+        grid-template-columns: none
+        grid-template-rows: 1fr 10px 1fr
+        width: 359px
+      
+      @media screen and (min-width: 767px) and (max-width: 1170px)
+        width: 760px
+
 
       .visual-button
         position: relative
-        height: 550px
+        height: 500px
         width: 600px
         font-family: $secondary-font
         color: $primary-font-color
         font-size: 55px
         font-weight: 600
         overflow: hidden
+        @media screen and (max-width: 767px)
+          height: 200px
+          font-size: 34px
+          width: 100%
+        @media screen and (min-width: 767px) and (max-width: 1170px)
+          height: 350px
+          font-size: 40px
+          width: 100%;
+      
+
+
       
         img
-          width: 169%
+          width: 170%
           margin: 0 0 0 0
           position: absolute
           opacity: 0.9
           left: -219px
           top: -20px
-          transition: 0.5s cubic-bezier(0.65, 0.54, 0, 0.9);
+          transition: opacity 0.5s cubic-bezier(0.65, 0.54, 0, 0.9);
+          @media screen and (max-width: 767px)
+            width: 600px;
+            left: -152px;
+            top: -85px;
+          @media screen and (min-width: 767px) and (max-width: 1170px)
+            width: 700px;
+            left: -141px;
+            top: -6px;
+
+
 
           &:hover
             opacity: 0.5
@@ -90,9 +121,9 @@
       .button-text
         position: absolute
         top: 45%
-        margin: 0 138px
         pointer-events: none;
-
+        width: 100%
+        text-align: center
         
       .visual-button:hover
         cursor: pointer
