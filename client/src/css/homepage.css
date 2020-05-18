@@ -20,12 +20,8 @@
           box-shadow: 0 0 11px 0 #333333;
 }
 
-.subtitle {
-  font-family: "Jost", sans-serif;
-  color: #ffffff;
-  font-size: 6em;
-  font-weight: 600;
-  margin: 0 0 0 0;
+.generic-button:focus {
+  outline: none;
 }
 
 .company-name {
@@ -51,6 +47,23 @@
       -ms-flex-direction: column;
           flex-direction: column;
   padding: 0 0 0 8%;
+  font-family: "Jost", sans-serif;
+  color: #ffffff;
+  font-size: 1em;
+  font-weight: 600;
+  margin: 0 0 0 0;
+}
+
+@media screen and (max-width: 767px) {
+  .large-box {
+    height: 750px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .large-box {
+    font-size: 0.6em;
+  }
 }
 
 .large-box2 {
@@ -61,6 +74,13 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  padding: 150px 14px;
+}
+
+@media screen and (max-width: 767px) {
+  .large-box2 {
+    padding-top: 100px;
+  }
 }
 
 .large-box2 .description-box {
@@ -73,7 +93,6 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding: 150px 100px 0;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -81,17 +100,31 @@
 }
 
 .large-box2 .description-box .category {
-  font-size: 60px;
+  font-size: 4em;
+  text-align: center;
+}
+
+@media screen and (max-width: 767px) {
+  .large-box2 .description-box .category {
+    font-size: 2em;
+  }
 }
 
 .large-box2 .description-box .description {
   color: #ffffff;
   font-family: "Jost", sans-serif;
-  font-size: 20.5px;
+  font-size: 1.3em;
   font-weight: 100;
-  padding: 10px;
-  width: 628px;
-  margin: 0 0 90px;
+  max-width: 650px;
+  margin: 15px 0 90px;
+  min-width: 200px;
+  text-align: center;
+}
+
+@media screen and (max-width: 767px) {
+  .large-box2 .description-box .description {
+    font-size: 1em;
+  }
 }
 
 .large-box2 .description-box .description .name {
@@ -99,10 +132,9 @@
 }
 
 .large-box2 .description-box .button-links {
-  display: -ms-grid;
-  display: grid;
   -ms-grid-columns: 1fr 25px 1fr;
       grid-template-columns: 1fr 25px 1fr;
+  display: none;
 }
 
 .large-box2 .description-box .button-links .visual-button {
