@@ -32,7 +32,7 @@
 }
 
 @media (max-width: 767px) {
-  .company-name {
+  .company-name .company-name {
     font-size: 20px;
   }
 }
@@ -59,24 +59,6 @@
 @media screen and (max-width: 767px) {
   .contents {
     padding: 27px 0 0 19px;
-  }
-}
-
-#nav-buttons {
-  margin: 5px 0 0 0;
-}
-
-#nav-buttons .nav-but {
-  font-family: "Jost", sans-serif;
-  color: #ffffff;
-  margin: 0 40px 0 0;
-  font-size: 17px;
-  font-weight: 600;
-}
-
-@media (max-width: 767px) {
-  #nav-buttons {
-    display: none;
   }
 }
 /*# sourceMappingURL=Navbar.css.map */
