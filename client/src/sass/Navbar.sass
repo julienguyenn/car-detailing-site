@@ -1,14 +1,24 @@
 @import "variables"
 
-#navbar
+.navbar
   background: transparent
   position: fixed
   width: 100%
   top: 0
+  height: 100px
   margin: 0 0 0 0
   z-index: 100
+  transition: 0.25s
+  color: $primary-font-color
+  font-family: $primary-font
+  overflow: hidden
 
-.contents
+
+.openNav
+  height: 300px
+  background: $primary-page-color
+
+#contents
    display: flex
    justify-content: space-between
    padding: 35px 40px 0 40px
@@ -30,6 +40,16 @@
 
   &:focus
     outline: none
+
+#menu-items
+  padding: 0
+  display: flex
+  flex-direction: column
+  list-style-type: none
+  text-align: center;
+  line-height: 50px;
+  font-size: 30px;
+  font-weight: 700
   
 
   

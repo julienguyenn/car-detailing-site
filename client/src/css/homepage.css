@@ -14,6 +14,13 @@
   transition: box-shadow 0.5s, -webkit-box-shadow 0.5s;
 }
 
+@media screen and (max-width: 767px) {
+  .generic-button {
+    width: 150px;
+    height: 50px;
+  }
+}
+
 .generic-button:hover {
   cursor: pointer;
   -webkit-box-shadow: 0 0 11px 0 #333333;
@@ -154,7 +161,6 @@
   display: grid;
   -ms-grid-columns: 1fr 25px 1fr;
       grid-template-columns: 1fr 25px 1fr;
-  width: 80%;
 }
 
 @media screen and (max-width: 767px) {

@@ -1,12 +1,31 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './css/Navbar.css'
 
 export default function Navbar() {
+  const [navState, changeNavState] = useState({
+    menuDisplay: '',
+    infoDisplay: false
+  })
+
+  const openCloseNav = function () {
+    if (navState.menuDisplay === '') {
+      changeNavState((prev) => 
+        ({ menuDisplay: 'openNav', 
+          infoDisplay: !prev.infoDisplay
+        }))
+    } else {
+      changeNavState((prev) => 
+      ({ menuDisplay: '', 
+        infoDisplay: !prev.infoDisplay
+      }))
+    }
+  }
+
   return (
-    <nav id="navbar">
-      <div className="contents">
+    <nav className={`navbar ${navState.menuDisplay}`}>
+      <div id="contents">
         <h1 class="company-name" id="navbar-name">CLLECTVE</h1>
-          <button className="nav-but">
+          <button onClick={openCloseNav}className="nav-but">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
               <line x1="0" y1="12" x2="100" y2="12"></line>
               <line x1="0" y1="6" x2="100" y2="6"></line>
@@ -14,6 +33,11 @@ export default function Navbar() {
             </svg>
           </button>
       </div>
+      <ul id="menu-items">
+        <a>About Us</a>
+        <a>Services</a>
+        <a>Contact</a>
+      </ul>
     </nav>
   )
 }

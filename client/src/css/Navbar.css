@@ -37,16 +37,27 @@
   }
 }
 
-#navbar {
+.navbar {
   background: transparent;
   position: fixed;
   width: 100%;
   top: 0;
+  height: 100px;
   margin: 0 0 0 0;
   z-index: 100;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+  color: #ffffff;
+  font-family: "Jost", sans-serif;
+  overflow: hidden;
 }
 
-.contents {
+.openNav {
+  height: 300px;
+  background: #101010;
+}
+
+#contents {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -60,7 +71,7 @@
 }
 
 @media screen and (max-width: 767px) {
-  .contents {
+  #contents {
     padding: 27px 0 0 19px;
   }
 }
@@ -85,5 +96,21 @@
 
 .nav-but:focus {
   outline: none;
+}
+
+#menu-items {
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  list-style-type: none;
+  text-align: center;
+  line-height: 50px;
+  font-size: 30px;
+  font-weight: 700;
 }
 /*# sourceMappingURL=Navbar.css.map */
