@@ -14,6 +14,13 @@
   transition: box-shadow 0.5s, -webkit-box-shadow 0.5s;
 }
 
+@media screen and (max-width: 767px) {
+  .generic-button {
+    width: 150px;
+    height: 50px;
+  }
+}
+
 .generic-button:hover {
   cursor: pointer;
   -webkit-box-shadow: 0 0 11px 0 #333333;
@@ -35,6 +42,11 @@
   .company-name .company-name {
     font-size: 20px;
   }
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
 }
 
 .navbar {
