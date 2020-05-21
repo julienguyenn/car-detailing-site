@@ -1,17 +1,17 @@
 @import "variables"
 
 .navbar
-  background: transparent
   position: fixed
   width: 100%
   top: 0
-  height: 100px
+  height: $nav-height
   margin: 0 0 0 0
   z-index: 100
   transition: 0.25s
   color: $primary-font-color
   font-family: $primary-font
   overflow: hidden
+  background: $primary-page-color
 
 
 .openNav
@@ -21,7 +21,7 @@
 #contents
    display: flex
    justify-content: space-between
-   padding: 35px 40px 0 40px
+   padding: 27px 40px 0 40px
    align-items: center;
    @media screen and (max-width: 767px)
     padding: 27px 0 0 19px
@@ -40,6 +40,9 @@
 
   &:focus
     outline: none
+
+  &:hover
+    cursor: pointer
 
 #menu-items
   padding: 0

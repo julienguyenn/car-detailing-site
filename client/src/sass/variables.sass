@@ -9,11 +9,13 @@ $secondary-font: 'Jost', sans-serif;
 $primary-font-color: #ffffff;
 $primary-page-color: #101010;
 
+// other
+$nav-height: 100px;
 
 .generic-button
   color: $primary-font-color
   font-family: $primary-font
-  font-size: 30px
+  font-size: 25px
   font-weight: 500
   border: 2px solid $primary-font-color
   width: 200px
@@ -48,3 +50,12 @@ $primary-page-color: #101010;
 a
   text-decoration: none
   color: $primary-font-color
+
+.info-body
+  font-family: $primary-font
+  color: $primary-font-color
+  margin-top: $nav-height
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center

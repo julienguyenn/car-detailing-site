@@ -23,12 +23,7 @@ function App() {
     <Router>
     <div className="App">
       <Navbar />
-
-      {/* commented out for now */}
-      {/* <Link to="/">Home</Link>
-      <Link to="/book">Book</Link>
-      <Link to='/admin'>Admin</Link> */}
-
+      
       <Switch>
         <Route path="/book">
           <BookingForm />

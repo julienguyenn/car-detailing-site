@@ -26,7 +26,7 @@ export default function Navbar() {
   return (
     <nav className={`navbar ${navState.menuDisplay}`}>
       <div id="contents">
-        <Link to='/'>
+        <Link to='/' onClick={() => changeNavState({menuDisplay: '', infoDisplay: false})}>
           <h1 class="company-name" id="navbar-name">CLLECTVE</h1>
         </Link>
           <button onClick={openCloseNav}className="nav-but">
