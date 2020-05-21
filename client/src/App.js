@@ -6,11 +6,14 @@ import {
   Link
 } from "react-router-dom";
 import BookingForm from './booking/BookingForm';
-import AddSchedule from './admin/AddSchedule'
+import AddSchedule from './admin/AddSchedule';
 import Homepage from './views/Homepage';
-import Navbar from './Navbar'
-import Footer from './Footer'
-import About from './views/About'
+import Navbar from './Navbar';
+import Footer from './Footer';
+import About from './views/About';
+import Contact from './views/Contact';
+import Services from './views/Services';
+
 import './css/App.css'
 
 
@@ -36,6 +39,12 @@ function App() {
         </Route>
         <Route path="/about">
           <About />
+        </Route>
+        <Route path="/services">
+          <Services />
+        </Route>
+        <Route path="/contact">
+          <Contact />
         </Route>
         <Route path="/">
           <Homepage />
