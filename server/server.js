@@ -111,7 +111,8 @@ app.get('/getTimes/:month/:day/:year', function (req, res) {
 // gets all the services 
 app.get('/getServices', function (req, res) {
   pool.query(`
-    SELECT * FROM services`)
+    SELECT * FROM services
+    ORDER BY id`)
     .then(data => {
       res.send(data.rows);
     })
