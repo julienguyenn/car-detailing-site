@@ -1,13 +1,13 @@
 import React from 'react';
 
 export default function SingleService({service}) {
-  console.log(service)
   return (
-    <div>
-      <h3>{service.service_name}</h3>
-      <p>{service.price}
-        <br></br>
-        {service.description}</p>
+    <div className="services-box">
+      <div className="row-box">
+        <h2>{service.service_name}</h2>
+        <p>${service.price}</p>
+      </div>
+        <p className="description">{service.description}</p>
     </div>
   )
 }

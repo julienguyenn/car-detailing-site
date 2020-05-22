@@ -5,8 +5,8 @@ export default function Contact() {
   return (
     <div className="info-body">
       <h1>Contact Info</h1>
-      <p>Call or message to book an appointment or ask questions.</p>
-      <p><span>Tommy Nguyen</span>
+      <p className="info">Call or message to book an appointment or ask questions.</p>
+      <p className="info"><span>Tommy Nguyen</span>
         <br>
         </br>
         Call & Text: (226) 789 0576
