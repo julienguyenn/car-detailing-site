@@ -19,7 +19,10 @@ export default function Services() {
 
   return (
     <div className="info-body">
-      <h1>Services</h1>
+      <h1>Car Detailing Services</h1>
+      <p className="disclaimer">*These are minimum prices, all prices increase for larger vehicles.
+      <br></br>
+       *For any specific work i.e just stain removal, seat shampoo, carpet shampoo, etc. please <a href="/contact"className="underlined">contact</a> for special pricing.*</p>
       {serviceComponents}
       <a href="/contact"className="generic-button longer">Want to book an appointment?</a>
     </div>

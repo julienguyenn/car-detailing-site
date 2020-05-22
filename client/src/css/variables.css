@@ -75,4 +75,12 @@ a {
       -ms-flex-align: center;
           align-items: center;
 }
+
+.disclaimer {
+  font-size: 20px;
+}
+
+.underlined {
+  text-decoration: underline;
+}
 /*# sourceMappingURL=variables.css.map */
