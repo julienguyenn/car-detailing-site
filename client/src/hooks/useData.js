@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useReducer, useEffect } from "react";
+import { useReducer, useEffect, useState } from "react";
 import { addDays, format } from 'date-fns';
 import appointmentReducer, {
   GET_SERVICES, 
@@ -16,11 +16,15 @@ export default function useData() {
     allServices: [],
     timeSlots: []
   });
+  const [services, setServices] = useState([])
 
   // gets all services in database
   useEffect(() => {
     axios.get('/getServices')
-    .then((res) => dispatch({type: GET_SERVICES, value: res.data}));
+    .then((res) => {
+      dispatch({type: GET_SERVICES, value: res.data});
+      setServices(res.data);
+    });
   }, []);
 
   // handles date change
@@ -68,5 +72,5 @@ export default function useData() {
   }
 
 
-  return { bookingInput, changeDate, changeService, bookSlot, bookAppointment }
+  return { bookingInput, changeDate, changeService, bookSlot, bookAppointment, services }
 }

@@ -10,7 +10,8 @@ const pool = new Pool({
   user: 'julienguyen',
   password: '123',
   host: 'localhost',
-  database: 'cllective'
+  database: 'cllective',
+  port: '1234'
 });
 app.use(bodyParser.json());
 
