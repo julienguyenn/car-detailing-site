@@ -91,7 +91,7 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 0 0 0 8%;
+  padding: 100px 0 0 8%;
 }
 
 .large-box .subtitle {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import ClientInfo from './ClientInfo';
 import BookingDetails from './BookingDetails';
-import useAppointmentData from '../hooks/useAppointmentData';
+import useData from '../hooks/useData';
 import Button from '@material-ui/core/Button';
 import { format, getYear } from 'date-fns';
 import numToTime from '../helpers/numToTime';
@@ -23,7 +23,7 @@ export default function BookingForm() {
           changeDate, 
           changeService, 
           bookSlot, 
-          bookAppointment } = useAppointmentData();
+          bookAppointment } = useData();
 
   // sends data to the backend to book appointment
   function send(e) {

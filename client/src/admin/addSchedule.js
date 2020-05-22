@@ -8,7 +8,7 @@ import { getLastAddedDate } from '../helpers/getLastAddedDate';
 const axios = require('axios').default;
 
 export default function AddSchedule() {
-  // localStorage.clear(); // uncomment to start date over
+  // localStorage.clear(); // uncomment to start date over to current
 
   const [dates, changeDates] = useState({})
   const [minMaxDates, changeMinMax] = useState([])

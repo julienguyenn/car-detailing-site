@@ -7,7 +7,7 @@ import appointmentReducer, {
   CHANGE_SERVICE,
   SELECT_SLOT } from '../reducers/appointment'
 
-export default function useAppointmentData() {
+export default function useData() {
   const [bookingInput, dispatch] = useReducer(appointmentReducer, {
     date: addDays(new Date(), 1),
     startTime: '',
