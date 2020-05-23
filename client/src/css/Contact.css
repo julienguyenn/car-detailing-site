@@ -74,6 +74,23 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 0 20px;
+}
+
+.disclaimer {
+  font-size: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+@media screen and (max-width: 767px) {
+  .disclaimer {
+    font-size: 15px;
+  }
+}
+
+.underlined {
+  text-decoration: underline;
 }
 
 .info-body {
@@ -83,6 +100,15 @@ a {
 .info-body h1 {
   margin-top: 100px;
   font-size: 40px;
+  width: 100%;
+  text-align: center;
+}
+
+@media screen and (max-width: 767px) {
+  .info-body h1 {
+    font-size: 27px;
+    margin-top: 50px;
+  }
 }
 
 .info-body .info {
@@ -92,8 +118,21 @@ a {
   margin: 0;
 }
 
+@media screen and (max-width: 767px) {
+  .info-body .info {
+    font-size: 19px;
+    line-height: 45px;
+  }
+}
+
 .info-body .info span {
   font-weight: 700;
   font-size: 30px;
+}
+
+@media screen and (max-width: 767px) {
+  .info-body .info span {
+    font-size: 21px;
+  }
 }
 /*# sourceMappingURL=Contact.css.map */

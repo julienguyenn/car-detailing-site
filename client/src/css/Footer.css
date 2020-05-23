@@ -76,6 +76,14 @@ a {
           align-items: center;
 }
 
+.disclaimer {
+  font-size: 20px;
+}
+
+.underlined {
+  text-decoration: underline;
+}
+
 #footer {
   height: 100px;
   display: -webkit-box;

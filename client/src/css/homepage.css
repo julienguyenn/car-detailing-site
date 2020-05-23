@@ -76,6 +76,14 @@ a {
           align-items: center;
 }
 
+.disclaimer {
+  font-size: 20px;
+}
+
+.underlined {
+  text-decoration: underline;
+}
+
 .large-box {
   height: 920px;
   background-image: url("../images/banner.jpg");
