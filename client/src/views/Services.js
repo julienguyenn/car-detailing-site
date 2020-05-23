@@ -32,7 +32,7 @@ export default function Services() {
       <br></br>
        *For any specific work i.e just stain removal, seat shampoo, carpet shampoo, etc. please <a href="/contact"className="underlined">contact</a> for special pricing.*</p>
         {regularServices}
-       <h1>Add-ons / Extra Services</h1>
+       <h1>Add-ons / Other Services</h1>
         {extraServices}
       <a href="/contact"className="generic-button longer">Want to book an appointment?</a>
     </div>
