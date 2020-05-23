@@ -1,29 +1,47 @@
 import axios from "axios";
-import { useReducer, useEffect, useState } from "react";
+import { useReducer, useEffect } from "react";
 import { addDays, format } from 'date-fns';
 import appointmentReducer, {
   GET_SERVICES, 
   CHANGE_DATE, 
   CHANGE_SERVICE,
-  SELECT_SLOT } from '../reducers/appointment'
+  SELECT_SLOT,
+  SET_EXTRA_SERVICES,
+  SET_REGULAR_SERVICES } from '../reducers/appointment'
 
 export default function useData() {
-  const [bookingInput, dispatch] = useReducer(appointmentReducer, {
+  const [bookingOptions, dispatch] = useReducer(appointmentReducer, {
     date: addDays(new Date(), 1),
     startTime: '',
     endTime: '',
     serviceInfo: {},
     allServices: [],
+    regularServices: [],
+    extraServices: [],
     timeSlots: []
   });
-  const [services, setServices] = useState([])
 
   // gets all services in database
   useEffect(() => {
     axios.get('/getServices')
     .then((res) => {
+      // sets al services
       dispatch({type: GET_SERVICES, value: res.data});
-      setServices(res.data);
+
+      // sets all regular services
+      dispatch({type: SET_REGULAR_SERVICES, 
+              value: res.data.filter((data) => {
+                return !data.add_on
+               })
+      });
+      
+      // sets extra services
+      dispatch({type: SET_EXTRA_SERVICES,
+                value: res.data.filter((data) => {
+                  return data.add_on
+                })  
+      });
+
     });
   }, []);
 
@@ -34,7 +52,7 @@ export default function useData() {
     .then(res => {
       dispatch({ type: CHANGE_DATE, 
         value: { date,
-                 service: bookingInput.serviceInfo,
+                 service: bookingOptions.serviceInfo,
                  times: res.data }
                 })
     })
@@ -42,7 +60,7 @@ export default function useData() {
 
   // handles service change
   function changeService(id) {
-    let formattedDate = format(bookingInput.date, 'MM/dd/yyyy');
+    let formattedDate = format(bookingOptions.date, 'MM/dd/yyyy');
     return Promise.all([
       axios.get(`/getService/${id}`),
       axios.get(`/getTimes/${formattedDate}`)
@@ -72,5 +90,5 @@ export default function useData() {
   }
 
 
-  return { bookingInput, changeDate, changeService, bookSlot, bookAppointment, services }
+  return { bookingOptions, changeDate, changeService, bookSlot, bookAppointment }
 }
