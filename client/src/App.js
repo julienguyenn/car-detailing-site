@@ -4,12 +4,11 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import BookingForm from './booking/BookingForm';
-import AddSchedule from './admin/AddSchedule';
+// import BookingForm from './booking/BookingForm';
+// import AddSchedule from './admin/AddSchedule';
 import Homepage from './views/Homepage';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import About from './views/About';
 import Contact from './views/Contact';
 import Services from './views/Services';
 
@@ -24,16 +23,13 @@ function App() {
       <Navbar />
       
       <Switch>
-        <Route path="/book">
+        {/* <Route path="/book">
           <BookingForm />
         </Route>
         <Route path="/admin">
           <h1>ADMIN</h1>
           <AddSchedule />
-        </Route>
-        <Route path="/about">
-          <About />
-        </Route>
+        </Route> */}
         <Route path="/services">
           <Services />
         </Route>

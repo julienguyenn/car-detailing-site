@@ -4,6 +4,7 @@ import SingleService from './SingleService';
 import '../css/Service.css'
 
 export default function Services() {
+  window.scrollTo(0, 0);
   // handles grabs all service info in database
   const { bookingOptions } = useData();
 
@@ -28,7 +29,7 @@ export default function Services() {
   return (
     <div className="info-body">
       <h1>Car Detailing Services</h1>
-      <p className="disclaimer">*These are minimum prices ( excluding add-ons ), all prices increase for larger vehicles.
+      <p className="disclaimer">*These are minimum prices, all prices increase for larger vehicles (excluding add-ons).
       <br></br>
        *For any specific work i.e just stain removal, seat shampoo, carpet shampoo, etc. please <a href="/contact"className="underlined">contact</a> for special pricing.*</p>
         {regularServices}

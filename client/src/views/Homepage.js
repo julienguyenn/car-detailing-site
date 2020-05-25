@@ -4,13 +4,14 @@ import ScrollAnimation from 'react-animate-on-scroll';
 import {Link} from "react-router-dom";
 
 export default function Homepage() {
+  window.scrollTo(0, 0);
+
 
   return (
     <div>
       <div className="large-box" id="banner">
         
         <p className="subtitle">Clean and Reliable.</p>
-        <a href='/about' className="generic-button">Learn more</a>
       </div>
       <div className="large-box2">
       <ScrollAnimation animateIn="fadeInUp">

@@ -2,6 +2,8 @@ import React from 'react';
 import '../css/Contact.css';
 
 export default function Contact() {
+  window.scrollTo(0, 0);
+
   return (
     <div className="info-body">
       <h1>Contact Info</h1>
@@ -12,7 +14,7 @@ export default function Contact() {
         Call & Text: (226) 789 0576
         <br>
         </br>
-        E-mail: something@email.com
+        E-mail: nguyentommy62@outlook.com
         <br>
         </br>
         Waterloo, Ontario

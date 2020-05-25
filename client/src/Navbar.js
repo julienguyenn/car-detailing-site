@@ -38,7 +38,7 @@ export default function Navbar() {
           </button>
       </div>
       <ul id="menu-items">
-        <Link to='/about' onClick={openCloseNav}>ABOUT US</Link>
+        <Link to='/' onClick={openCloseNav}>HOME</Link>
         <Link to='/services' onClick={openCloseNav}>SERVICES</Link>
         <Link to='/contact' onClick={openCloseNav}>CONTACT</Link>
       </ul>
