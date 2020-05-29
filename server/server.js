@@ -132,4 +132,8 @@ app.get(`/getService/:id`, function (req, res) {
     .catch(err => console.log(err.stack))
 })
 
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('../client/build'))
+}
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
