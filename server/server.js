@@ -2,18 +2,36 @@
 const express = require('express');
 const { Client } = require('pg');
 const bodyParser = require("body-parser");
+const path = require('path')
 const app = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || process.env.ALTERNATIVE_PORT;
 
 // Use the below to do queries through here
 const client = new Client({
   connectionString: process.env.DATABASE_URL,
   ssl: {
-    rejectUnauthorized: false
-  }
+    rejectUnauthorized: false,
+  },
 });
 
+client.connect(err => {
+  if (err) {
+    console.error('connection error', err.stack)
+  } else {
+    console.log('connected to database')
+  }
+})
+
 app.use(bodyParser.json());
+
+app.use(express.static(__dirname + '/../client/public'))
+
+// handle every other route with index.html, which will contain
+// a script tag to your application's JavaScript file(s).
+app.get('/*', function (request, response){
+  console.log(path.resolve(__dirname, '/../client/public', 'index.html'))
+  response.sendFile(path.resolve(__dirname, '/../client/public', 'index.html'))
+})
 
 // Books an appointment and adds information to the database
 app.post('/addAppointment', (req, res) => {
@@ -136,4 +154,4 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static('../client/build'))
 }
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+app.listen(port, () => console.log(`App Listening!`))

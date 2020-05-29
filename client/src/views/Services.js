@@ -1,7 +1,8 @@
 import React from 'react';
 import useData from '../hooks/useData';
 import SingleService from './SingleService';
-import '../css/Service.css'
+import '../css/Service.css';
+import {Link} from "react-router-dom";
 
 export default function Services() {
   window.scrollTo(0, 0);
@@ -31,11 +32,11 @@ export default function Services() {
       <h1>Car Detailing Services</h1>
       <p className="disclaimer">*These are minimum prices, all prices increase for larger vehicles (excluding add-ons).
       <br></br>
-       *For any specific work i.e just stain removal, seat shampoo, carpet shampoo, etc. please <a href="/contact"className="underlined">contact</a> for special pricing.*</p>
+       *For any specific work i.e just stain removal, seat shampoo, carpet shampoo, etc. please <Link to="/contact"className="underlined">contact</Link> for special pricing.*</p>
         {regularServices}
        <h1>Add-ons / Other Services</h1>
         {extraServices}
-      <a href="/contact"className="generic-button longer">Want to book an appointment?</a>
+      <Link to="/contact"className="generic-button longer">Want to book an appointment?</Link>
     </div>
   )
 }
