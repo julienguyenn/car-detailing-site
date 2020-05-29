@@ -1,18 +1,18 @@
 
 const express = require('express');
-const { Pool } = require('pg');
+const { Client } = require('pg');
 const bodyParser = require("body-parser");
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 // Use the below to do queries through here
-const pool = new Pool({
-  user: 'julienguyen',
-  password: '123',
-  host: 'localhost',
-  database: 'cllective',
-  port: '1234'
+const client = new Client({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
+
 app.use(bodyParser.json());
 
 // Books an appointment and adds information to the database
@@ -23,7 +23,7 @@ app.post('/addAppointment', (req, res) => {
   // add/updates clients into data
   // add the appointment in the data
   // yearly update of the database
-  pool.query(`
+  client.query(`
     INSERT INTO clients ("first_name", "last_name", "email", "phone", "text")
     VALUES 
       ('${client.first_name}',
@@ -65,7 +65,7 @@ app.post('/addSchedule', (req, res) => {
   const schedule = req.body.dates;
 
   // apply yearly maintenace by deleting data if it is from the previous year
-  pool.query(`
+  client.query(`
     DELETE from availability WHERE year < ${req.body.year}`)
     .then(res => { console.log(res) })
     .catch(err => console.log('query error', err.stack));
@@ -74,7 +74,7 @@ app.post('/addSchedule', (req, res) => {
   for (let date in schedule) {
     let times = schedule[date];
     for (let time in times) {
-      pool.query(`
+      client.query(`
         INSERT INTO availability ("timeslot", "date", "booked", "year")
         VALUES
           (${time},
@@ -93,7 +93,7 @@ app.post('/addSchedule', (req, res) => {
 // gets all the timeslots for the day
 app.get('/getTimes/:month/:day/:year', function (req, res) {
   const date = `${req.params.month}/${req.params.day}/${req.params.year}`;
-  pool.query(`
+  client.query(`
     SELECT booked,
            timeslot
     FROM availability 
@@ -110,7 +110,7 @@ app.get('/getTimes/:month/:day/:year', function (req, res) {
 
 // gets all the services 
 app.get('/getServices', function (req, res) {
-  pool.query(`
+  client.query(`
     SELECT * FROM services
     ORDER BY id`)
     .then(data => {
@@ -123,7 +123,7 @@ app.get('/getServices', function (req, res) {
 app.get(`/getService/:id`, function (req, res) {
   const service = req.params.id;
   console.log(service)
-  pool.query(`
+  client.query(`
     SELECT * FROM services
     WHERE id=${service}`)
     .then(data => {
