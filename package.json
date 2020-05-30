@@ -7,7 +7,7 @@
   },
   "scripts": {
     "start": "node server.js",
-    "start:dev": "nodemon fileName.js",
+    "start:dev": "nodemon server.js",
     "build": "cd client && npm run build",
     "install-client": "cd client && npm install",
     "heroku-postbuild": "npm run install-client && npm run build",
