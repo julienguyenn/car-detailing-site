@@ -25,7 +25,7 @@ export default function useData() {
   useEffect(() => {
     axios.get('/getServices')
     .then((res) => {
-      // sets al services
+      // sets all services
       dispatch({type: GET_SERVICES, value: res.data});
 
       // sets all regular services

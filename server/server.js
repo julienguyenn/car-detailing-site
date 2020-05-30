@@ -8,7 +8,7 @@ const port = process.env.PORT || process.env.ALTERNATIVE_PORT;
 
 // Use the below to do queries through here
 const client = new Client({
-  connectionString: process.env.DATABASE_URL,
+  connectionString: process.env.DATABASE_URL || "postgres://luzdddoatbytbl:672d26c0a3870755283b206c2130938edff2bbc8c3fef584aa378eb40f51102c@ec2-52-7-39-178.compute-1.amazonaws.com:5432/d5pfet8cb9rdv4",
   ssl: {
     rejectUnauthorized: false,
   },
@@ -23,15 +23,6 @@ client.connect(err => {
 })
 
 app.use(bodyParser.json());
-
-app.use(express.static(__dirname + '/../client/public'))
-
-// handle every other route with index.html, which will contain
-// a script tag to your application's JavaScript file(s).
-app.get('/*', function (request, response){
-  console.log(path.resolve(__dirname, '/../client/public', 'index.html'))
-  response.sendFile(path.resolve(__dirname, '/../client/public', 'index.html'))
-})
 
 // Books an appointment and adds information to the database
 app.post('/addAppointment', (req, res) => {
@@ -150,8 +141,15 @@ app.get(`/getService/:id`, function (req, res) {
     .catch(err => console.log(err.stack))
 })
 
+// handles production mode
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('../client/build'))
 }
+
+// handle every other route with index.html, which will contain
+// a script tag to your application's JavaScript file(s).
+app.get(`/*`, function (request, response){
+  response.sendFile(path.resolve('../client/build/index.html'))
+})
 
 app.listen(port, () => console.log(`App Listening!`))
