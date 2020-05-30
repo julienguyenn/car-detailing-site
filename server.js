@@ -143,12 +143,12 @@ app.get(`/getService/:id`, function (req, res) {
 
 // handles production mode
 if (process.env.NODE_ENV === 'production') {
-  app.use('/', express.static('/client/build'))
+  app.use(express.static('/client/build'))
 }
 
 // handle every other route with index.html, which will contain
 // a script tag to your application's JavaScript file(s).
-app.get(`*`, function (request, response){
+app.get(`/*`, function (request, response){
   response.sendFile(path.resolve('/client/build/index.html'))
 })
 
