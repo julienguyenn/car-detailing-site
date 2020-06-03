@@ -167,7 +167,7 @@ a {
   color: #ffffff;
   font-weight: 700;
   margin: 0;
-  font-size: 3em;
+  font-size: 3.5em;
   text-align: center;
 }
 
@@ -288,7 +288,7 @@ a {
 
 .large-box2 .description-box .button-links .button-text {
   position: absolute;
-  top: 45%;
+  top: 41%;
   pointer-events: none;
   width: 100%;
   text-align: center;
