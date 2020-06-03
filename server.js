@@ -8,12 +8,13 @@ const port = process.env.PORT || process.env.ALTERNATIVE_PORT;
 
 // Use the below to do queries through here
 const client = new Client({
-  connectionString: process.env.DATABASE_URL || "postgres://luzdddoatbytbl:672d26c0a3870755283b206c2130938edff2bbc8c3fef584aa378eb40f51102c@ec2-52-7-39-178.compute-1.amazonaws.com:5432/d5pfet8cb9rdv4",
+  connectionString: process.env.DATABASE_URL,
   ssl: {
     rejectUnauthorized: false,
   },
 });
 
+// Connects to database
 client.connect(err => {
   if (err) {
     console.error('connection error', err.stack)

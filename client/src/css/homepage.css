@@ -167,7 +167,7 @@ a {
   color: #ffffff;
   font-weight: 700;
   margin: 0;
-  font-size: 4em;
+  font-size: 3em;
   text-align: center;
 }
 
@@ -186,7 +186,7 @@ a {
 .large-box2 .description-box .description {
   color: #ffffff;
   font-family: "Jost", sans-serif;
-  font-size: 1.3em;
+  font-size: 1.2em;
   font-weight: 100;
   width: 650px;
   margin: 15px 0 90px;
@@ -231,10 +231,10 @@ a {
 .large-box2 .description-box .button-links .visual-button {
   position: relative;
   height: 500px;
-  width: 600px;
+  width: 500px;
   font-family: "Jost", sans-serif;
   color: #ffffff;
-  font-size: 55px;
+  font-size: 48px;
   font-weight: 600;
   overflow: hidden;
 }
@@ -260,7 +260,7 @@ a {
   margin: 0 0 0 0;
   position: absolute;
   opacity: 0.9;
-  left: -219px;
+  left: -182px;
   top: -20px;
   -webkit-transition: opacity 0.5s cubic-bezier(0.65, 0.54, 0, 0.9);
   transition: opacity 0.5s cubic-bezier(0.65, 0.54, 0, 0.9);
